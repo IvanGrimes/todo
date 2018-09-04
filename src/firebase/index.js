@@ -1,4 +1,4 @@
-import firebase from './firebase';
+import { authRef, provider } from './firebase';
 import config from './config';
 
-export { firebase, config };
+export { authRef, provider, config };

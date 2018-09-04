@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import './App.css';
+import SignIn from './SignIn';
 
-export const App = () => (
+const App = () => (
   <Fragment>
-    hi
+    <SignIn />
   </Fragment>
 );
 

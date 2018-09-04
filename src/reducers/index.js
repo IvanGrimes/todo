@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
+import signIn from './signIn';
+import user from './user';
 
-const index = combineReducers({});
+const reducer = combineReducers({
+  signIn,
+  user,
+});
 
-export default index;
+export default reducer;

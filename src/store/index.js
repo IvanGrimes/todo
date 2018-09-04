@@ -2,14 +2,17 @@ import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import reducer from '../reducers';
+import { signIn } from '../sagas';
 
 const saga = createSagaMiddleware();
 
-const index = createStore(
+const store = createStore(
   reducer,
-  applyMiddleware(saga, logger)
+  applyMiddleware(saga, logger),
 );
 
-window.store = index; // TODO: Delete when you finished
+window.store = store; // TODO: Delete when you finished
 
-export default index;
+saga.run(signIn);
+
+export default store;
