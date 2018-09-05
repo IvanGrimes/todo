@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { authRef } from '../firebase';
+import { authRef, authPersistance } from '../firebase';
 import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
@@ -11,7 +11,11 @@ function* fetchUser(action) {
   try {
     const { username, password } = action.payload;
     const user = yield call(
-      () => (authRef.signInWithEmailAndPassword(username, password)), action.payload.username,
+      () => (
+        authRef().setPersistence(authPersistance)
+          .then(() => authRef().signInWithEmailAndPassword(username, password))
+      ),
+      action.payload.username,
     );
 
     yield put({
@@ -23,7 +27,11 @@ function* fetchUser(action) {
       type: AUTH_USER,
       payload: user.user,
     });
+
+    localStorage.setItem('uid', user.user.uid);
   } catch (error) {
+    localStorage.removeItem('uid');
+
     yield put({
       type: SIGN_IN_FAIL,
       payload: error.message,

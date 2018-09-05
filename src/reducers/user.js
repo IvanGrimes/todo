@@ -3,9 +3,8 @@ import {
 } from '../actions';
 
 const initialState = {
-  uid: null,
-  username: null,
-  auth: false,
+  uid: localStorage.getItem('uid'),
+  auth: !!localStorage.getItem('uid'),
 };
 // TODO: state will be cleaned on signOut
 export default function user(state = initialState, action) {
@@ -14,7 +13,6 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         uid: action.payload.uid,
-        username: action.payload.email,
         auth: true,
       };
     default:

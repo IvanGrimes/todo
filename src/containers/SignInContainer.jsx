@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signIn } from '../actions/index';
 import SignIn from '../components/SignIn';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter,
-} from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 class SignInContainer extends Component {
   static propTypes = {
@@ -37,6 +31,11 @@ class SignInContainer extends Component {
 
   render() {
     const { username, password } = this.state;
+    const { isAuth } = this.props;
+
+    if (isAuth) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <SignIn
@@ -49,10 +48,14 @@ class SignInContainer extends Component {
   }
 }
 
+const mapStateToProps = store => ({
+  isAuth: store.user.auth,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   auth: (username, password) => {
     dispatch(signIn(username, password));
   },
 });
 
-export default connect(null, mapDispatchToProps)(SignInContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);
