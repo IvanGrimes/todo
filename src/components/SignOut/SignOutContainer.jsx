@@ -5,8 +5,8 @@ import { signOut } from '../../actions/user';
 import SignOut from './SignOut';
 
 class SignOutContainer extends Component {
-  static SignOutContainer = {
-
+  static propTypes = {
+    handleSignOut: PropTypes.func.isRequired,
   };
 
   handleClick = (ev) => {

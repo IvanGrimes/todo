@@ -7,7 +7,8 @@ import { Redirect } from 'react-router-dom';
 
 class SignInContainer extends Component {
   static propTypes = {
-
+    isAuth: PropTypes.bool.isRequired,
+    handleSignIn: PropTypes.func.isRequired,
   };
 
   state = {
@@ -24,9 +25,9 @@ class SignInContainer extends Component {
   handleClick = (ev) => {
     ev.preventDefault();
     const { username, password } = this.state;
-    const { auth } = this.props;
+    const { handleSignIn } = this.props;
 
-    auth(username, password);
+    handleSignIn(username, password);
   };
 
   render() {
@@ -44,7 +45,7 @@ class SignInContainer extends Component {
         handleInput={this.handleInput}
         handleClick={this.handleClick}
       />
-    )
+    );
   }
 }
 
@@ -52,8 +53,8 @@ const mapStateToProps = store => ({
   isAuth: store.user.auth,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  auth: (username, password) => (
+const mapDispatchToProps = dispatch => ({
+  handleSignIn: (username, password) => (
     dispatch(signInRequest(username, password))
   ),
 });

@@ -12,7 +12,7 @@ const SignOut = ({ handleClick }) => {
 };
 
 SignOut.propTypes = {
-
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default SignOut;

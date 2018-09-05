@@ -1,3 +1,3 @@
-import { authRef, authPersistance, provider } from './firebase';
+import { authRef, database, provider } from './firebase';
 
-export { authRef, authPersistance, provider };
+export { authRef, database, provider };

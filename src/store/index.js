@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers/rootReducer';
-import signIn from '../sagas/signIn';
+import rootSaga from '../sagas/rootSaga';
 
 export const history = createHistory();
 const saga = createSagaMiddleware();
@@ -22,6 +22,5 @@ const store = createStore(
 
 window.store = store; // TODO: Delete when you finished
 
-saga.run(signIn);
-
+saga.run(rootSaga);
 export default store;

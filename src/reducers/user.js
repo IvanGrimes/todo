@@ -14,22 +14,23 @@ const initialState = {
 export default function user(state = initialState, action) {
   switch (action.type) {
     case SIGN_IN_REQUEST:
-        return {
-          ...state,
-          error: null,
-        };
+      return {
+        ...state,
+        error: null,
+      };
     case SIGN_IN_SUCCESS:
-        return {
-          ...state,
-          uid: action.payload,
-          auth: true,
-        };
+      return {
+        ...state,
+        uid: action.payload,
+        auth: true,
+      };
     case SIGN_IN_FAIL:
-        return {
-          ...state,
-          error: action.payload,
-        };
+      return {
+        ...state,
+        error: action.payload,
+      };
     case SIGN_OUT:
+      localStorage.removeItem('uid');
       return {
         ...state,
         ...action.payload,

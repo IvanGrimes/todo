@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
-import './App.css';
 import SignInContainer from '../SignIn/SignInContainer';
-import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import TodoContainer from '../Todo/TodoContainer';
+import './App.css';
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>
@@ -17,11 +16,7 @@ const App = ({ history }) => (
 );
 
 App.propTypes = {
-  isAuth: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = store => ({
-  isAuth: store.user.auth,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
