@@ -5,7 +5,7 @@ import {
   signIn,
 } from './signIn';
 import {
-  SET_USER,
+  SIGN_IN,
   setUser,
 } from './user';
 
@@ -14,6 +14,6 @@ export {
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
   signIn,
-  SET_USER,
+  SIGN_IN,
   setUser,
 };

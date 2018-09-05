@@ -4,22 +4,23 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
-  SET_USER,
+  SIGN_IN,
 } from '../actions';
 
 function* fetchUser(action) {
   try {
-    const { email, password } = action.payload;
+    const { username, password } = action.payload;
     const user = yield call(
-      () => (authRef.signInWithEmailAndPassword(email, password)), action.payload.email,
+      () => (authRef.signInWithEmailAndPassword(username, password)), action.payload.username,
     );
 
     yield put({
       type: SIGN_IN_SUCCESS,
       payload: user.user.uid,
     });
+
     yield put({
-      type: SET_USER,
+      type: SIGN_IN,
       payload: user.user,
     });
   } catch (error) {

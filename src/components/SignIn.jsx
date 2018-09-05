@@ -1,49 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SignIn extends Component {
+export default class SignIn extends Component {
   static propTypes = {
 
   };
 
-  state = {
-    username: '',
-    password: '',
-  };
-
-  handleInput = (ev) => {
-    const { id, value } = ev.target;
-
-    this.setState({ [id]: value });
-  };
-
-  handleLogin = (ev) => {
-    ev.preventDefault();
-  };
-
   render() {
-    const { username, password } = this.state;
+    const { username, password, handleInput, handleClick } = this.props;
+
     return (
       <div>
         <input
           id="username"
           type="text"
-          onChange={this.handleInput}
+          onChange={handleInput}
           value={username}
-          placeholder="Usernames"
+          placeholder="Username"
         />
 
         <input
           id="password"
           type="password"
-          onChange={this.handleInput}
+          onChange={handleInput}
           value={password}
           placeholder="Password"
         />
 
         <button
           type="button"
-          onClick={this.handleLogin}
+          onClick={(ev) => {
+            handleClick(ev);
+          }}
         >
           Login
         </button>
@@ -51,5 +39,3 @@ class SignIn extends Component {
     );
   }
 }
-
-export default SignIn;

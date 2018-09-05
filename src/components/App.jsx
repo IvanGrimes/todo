@@ -1,11 +1,21 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
-import SignIn from './SignIn';
+import SignInContainer from '../containers/SignInContainer';
+import { connect } from 'react-redux';
 
 const App = () => (
   <Fragment>
-    <SignIn />
+    <SignInContainer />
   </Fragment>
 );
 
-export default App;
+App.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = store => ({
+  isAuth: store.user.auth,
+});
+
+export default connect(mapStateToProps)(App);
