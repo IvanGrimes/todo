@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signIn } from '../actions/index';
-import SignIn from '../components/SignIn';
+import { signInRequest } from '../../actions/user';
+import SignIn from './SignIn';
 import { Redirect } from 'react-router-dom';
 
 class SignInContainer extends Component {
@@ -54,7 +54,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = (dispatch) => ({
   auth: (username, password) => {
-    dispatch(signIn(username, password));
+    dispatch(signInRequest(username, password));
   },
 });
 

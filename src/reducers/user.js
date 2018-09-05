@@ -2,7 +2,7 @@ import {
   SIGN_IN_FAIL,
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
-} from '../actions';
+} from '../constants/actionTypes';
 
 const initialState = {
   uid: localStorage.getItem('uid') || null,
@@ -10,7 +10,7 @@ const initialState = {
   error: null,
 };
 
-export default function signIn(state = initialState, action) {
+export default function user(state = initialState, action) {
   switch (action.type) {
     case SIGN_IN_REQUEST:
         return {

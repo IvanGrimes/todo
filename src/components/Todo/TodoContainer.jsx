@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import SignOut from '../components/SignOut';
+import SignOut from '../SignOut/SignOut';
 
 class TodoList extends Component {
   static propTypes = {

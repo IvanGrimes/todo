@@ -4,7 +4,7 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
-} from '../actions';
+} from '../constants/actionTypes';
 
 function* fetchUser(action) {
   try {

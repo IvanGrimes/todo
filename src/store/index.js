@@ -3,8 +3,8 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
-import reducer from '../reducers';
-import { signIn } from '../sagas';
+import rootReducer from '../reducers/rootReducer';
+import signIn from '../sagas/signIn';
 
 export const history = createHistory();
 const saga = createSagaMiddleware();
@@ -16,7 +16,7 @@ const middleware = applyMiddleware(
 );
 
 const store = createStore(
-  reducer,
+  rootReducer,
   middleware,
 );
 

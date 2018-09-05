@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
-import SignInContainer from '../containers/SignInContainer';
+import SignInContainer from '../SignIn/SignInContainer';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
-import TodoContainer from '../containers/TodoContainer';
+import TodoContainer from '../Todo/TodoContainer';
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>
