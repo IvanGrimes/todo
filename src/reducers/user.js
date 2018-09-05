@@ -1,5 +1,5 @@
 import {
-  SIGN_IN,
+  AUTH_USER,
 } from '../actions';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
 // TODO: state will be cleaned on signOut
 export default function user(state = initialState, action) {
   switch (action.type) {
-    case SIGN_IN:
+    case AUTH_USER:
       return {
         ...state,
         uid: action.payload.uid,

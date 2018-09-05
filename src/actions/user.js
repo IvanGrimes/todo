@@ -1,6 +1,6 @@
-export const SIGN_IN = 'SIGN_IN';
+export const AUTH_USER = 'AUTH_USER';
 
-export const setUser = data => ({
-  type: SIGN_IN,
+export const authUser = data => ({
+  type: AUTH_USER,
   payload: data,
 });

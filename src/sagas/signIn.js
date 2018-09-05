@@ -4,7 +4,7 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
-  SIGN_IN,
+  AUTH_USER,
 } from '../actions';
 
 function* fetchUser(action) {
@@ -20,7 +20,7 @@ function* fetchUser(action) {
     });
 
     yield put({
-      type: SIGN_IN,
+      type: AUTH_USER,
       payload: user.user,
     });
   } catch (error) {

@@ -5,8 +5,8 @@ import {
   signIn,
 } from './signIn';
 import {
-  SIGN_IN,
-  setUser,
+  AUTH_USER,
+  authUser,
 } from './user';
 
 export {
@@ -14,6 +14,6 @@ export {
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
   signIn,
-  SIGN_IN,
-  setUser,
+  AUTH_USER,
+  authUser,
 };
