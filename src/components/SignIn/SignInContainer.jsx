@@ -53,9 +53,9 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  auth: (username, password) => {
-    dispatch(signInRequest(username, password));
-  },
+  auth: (username, password) => (
+    dispatch(signInRequest(username, password))
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);

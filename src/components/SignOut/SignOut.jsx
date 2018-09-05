@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SignOut = props => {
+const SignOut = ({ handleClick }) => {
   return (
-    <button>
+    <button
+      onClick={handleClick}
+    >
       Sign out
     </button>
   );

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import SignOut from '../SignOut/SignOut';
+import SignOutContainer from '../SignOut/SignOutContainer';
 
 class TodoList extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ class TodoList extends Component {
     return (
       <Fragment>
         <p>You're logged in</p>
-        <SignOut />
+        <SignOutContainer />
       </Fragment>
     );
   }
