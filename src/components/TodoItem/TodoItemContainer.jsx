@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
 import { deleteTodo, toggleTodoState } from '../../actions/todo';
+import {database} from "../../firebase";
 
 class TodoItemContainer extends Component {
   static propTypes = {
@@ -16,11 +17,15 @@ class TodoItemContainer extends Component {
   handleClickButton = (id) => {
     const { handleDelete } = this.props;
     handleDelete(id);
+    database.ref(`users/${localStorage.getItem('uid')}/todolist/${id}`).remove();
   };
 
   handleClickContent = (id) => {
     const { handleComplete, completed } = this.props;
     handleComplete(id, !completed);
+    database.ref(`users/${localStorage.getItem('uid')}/todolist/${id}`).update({
+      completed: !completed,
+    });
   };
 
   render() {
