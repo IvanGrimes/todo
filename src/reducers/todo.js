@@ -3,8 +3,8 @@ import {
   GET_TODO_LIST_SUCCESS,
   GET_TODO_LIST_FAIL,
   ADD_TODO,
-  COMPLETE_TODO,
   DELETE_TODO,
+  COMPLETE_TODO,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -33,6 +33,11 @@ export default function todo(state = initialState, action) {
       return {
         ...state,
         list: [...state.list, action.payload],
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        list: state.list.filter(todoItem => todoItem.key !== action.payload),
       };
     default:
       return state;

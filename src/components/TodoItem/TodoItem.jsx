@@ -4,25 +4,31 @@ import PropTypes from 'prop-types';
 class TodoItem extends Component {
   static propTypes = {};
 
-  handleClickItem = () => {};
 
-  handleClickButton = () => {};
 
   render() {
-    const { content } = this.props;
+    const {
+      content,
+      handleClickItem,
+      handleClickButton,
+      itemId,
+    } = this.props;
+
     return (
       <div
         className="todo-item"
-        onClick={this.handleClickItem}
+        onClick={() => handleClickItem(itemId)}
       >
         <button
           className="todo-item__button"
-          onClick={this.handleClickButton}
+          onClick={() => handleClickButton(itemId)}
         >
           X
         </button>
 
-        <p className="todo-item__content">{content}</p>
+        <p className="todo-item__content">
+          {content}
+        </p>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import SignOutContainer from '../SignOut/SignOutContainer';
-import { getTodoListRequest } from '../../actions/todo';
+import { getTodoListRequest, deleteTodo } from '../../actions/todo';
 import Todo from './Todo';
 import AddTodoContainer from '../AddTodo/AddTodoContainer';
 
