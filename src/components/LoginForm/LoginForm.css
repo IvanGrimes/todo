@@ -4,6 +4,16 @@
   flex-direction: column;
   width: 275px;
   margin: 0 auto;
+  transition: filter .15s linear;
+}
+
+.login-form--disabled {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 275px;
+  margin: 0 auto;
+  filter: grayscale(100%);
 }
 
 .login-form__input {
@@ -43,11 +53,19 @@
   color: #56677f;
   cursor: pointer;
   background-color: transparent;
-  transition: background-color .2s linear;
+  transition: background-color .15s linear;
 }
 
 .login-form__controls-button:hover {
   background-color: rgba(185, 201, 218, 0.3);
+}
+
+.login-form__controls-button:disabled {
+  cursor: default;
+}
+
+.login-form__controls-button:disabled:hover {
+  background-color: transparent;
 }
 
 .login-form__controls-link {
@@ -55,4 +73,9 @@
   font-weight: 700;
   font-size: 14px;
   color: #56677f;
+}
+
+.login-form__controls-link--disabled {
+  cursor: default;
+  pointer-events:none;
 }

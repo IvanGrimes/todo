@@ -7,14 +7,15 @@ const LoginForm = ({
   email,
   password,
   buttonText,
-  handleInput,
+  handleChange,
   handleClick,
   error,
   linkTo,
   linkText,
+  isFetching,
 }) => {
   return (
-    <div className="login-form">
+    <div className={`login-form ${isFetching ? 'login-form--disabled' : ''}`}>
       <p className="login-form__error">
         {error}
       </p>
@@ -23,24 +24,27 @@ const LoginForm = ({
         className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
         type="email"
         id="email"
-        onChange={handleInput}
+        onChange={handleChange}
         value={email}
         placeholder="Username"
+        disabled={isFetching}
       />
 
       <input
         className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
         type="password"
         id="password"
-        onChange={handleInput}
+        onChange={handleChange}
         value={password}
         placeholder="Password"
+        disabled={isFetching}
       />
 
       <div className="login-form__controls">
         <button
           className={`login-form__controls-button ${error.length ? 'login-form__button--is-not-valid' : ''}`}
           type="button"
+          disabled={isFetching}
           onClick={(ev) => {
             handleClick(ev);
           }}
@@ -48,7 +52,10 @@ const LoginForm = ({
           {buttonText}
         </button>
 
-        <Link className="login-form__controls-link" to={linkTo}>
+        <Link
+          className={`login-form__controls-link ${isFetching ? 'login-form__controls-link--disabled' : ''}`}
+          to={linkTo}
+        >
           {linkText}
         </Link>
       </div>

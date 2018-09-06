@@ -18,7 +18,7 @@ class SignInContainer extends Component {
     password: '',
   };
 
-  handleInput = (ev) => {
+  handleChange = (ev) => {
     const { id, value } = ev.target;
 
     this.setState({ [id]: value });
@@ -41,20 +41,17 @@ class SignInContainer extends Component {
     }
 
     return (
-      isFetching
-        ? <p>Fetching...</p>
-        : (
-          <SignIn
-            email={email}
-            password={password}
-            handleInput={this.handleInput}
-            handleClick={this.handleClick}
-            error={error}
-            buttonText="Sign In"
-            linkTo="/register"
-            linkText="Sign Up"
-          />
-        )
+      <SignIn
+        email={email}
+        password={password}
+        handleChange={this.handleChange}
+        handleClick={this.handleClick}
+        error={error}
+        buttonText="Sign In"
+        linkTo="/register"
+        linkText="Sign Up"
+        isFetching={isFetching}
+      />
     );
   }
 }

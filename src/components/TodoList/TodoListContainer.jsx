@@ -2,11 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import SignOutContainer from '../SignOut/SignOutContainer';
 import { getTodoListRequest } from '../../actions/todo';
 import TodoList from './TodoList';
-import AddTodoContainer from '../AddTodo/AddTodoContainer';
-import TodoListFilterContainer from '../TodoListFilter/TodoListFilterContainer';
 import { getFilteredTodoList } from '../../selectors';
 
 class TodoListContainer extends Component {
@@ -15,6 +12,7 @@ class TodoListContainer extends Component {
     getTodoList: PropTypes.func.isRequired,
     todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
     isFetching: PropTypes.bool.isRequired,
+    currentFilter: PropTypes.string.isRequired,
   };
 
   componentDidMount() {
@@ -23,25 +21,25 @@ class TodoListContainer extends Component {
   }
 
   render() {
-    const { isAuth, todoList, isFetching } = this.props;
+    const {
+      isAuth,
+      todoList,
+      isFetching,
+      currentFilter,
+    } = this.props;
 
     if (!isAuth) {
       return <Redirect to="/login" />;
     }
 
     return (
-      isFetching
-        ? <p>Fetching...</p>
-        : (
-          <Fragment>
-            <SignOutContainer />
-            <TodoListFilterContainer />
-            <TodoList
-              todoList={todoList}
-            />
-            <AddTodoContainer />
-          </Fragment>
-        )
+      <Fragment>
+        <TodoList
+          todoList={todoList}
+          isFetching={isFetching}
+          currentFilter={currentFilter}
+        />
+      </Fragment>
     );
   }
 }
@@ -50,6 +48,7 @@ const mapStateToProps = store => ({
   isAuth: store.user.auth,
   isFetching: store.todo.isFetching,
   todoList: getFilteredTodoList(store),
+  currentFilter: store.todo.filter,
 });
 
 const mapDispatchToState = dispatch => ({

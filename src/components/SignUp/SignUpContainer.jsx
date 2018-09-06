@@ -31,7 +31,7 @@ class SignUpContainer extends Component {
   };
 
   render() {
-    const { isAuth, error } = this.props;
+    const { isAuth, error, isFetching } = this.props;
     const { email, password } = this.state;
 
     if (isAuth) {
@@ -48,6 +48,7 @@ class SignUpContainer extends Component {
         buttonText="Sign Up"
         linkTo="/login"
         linkText="Sign In"
+        isFetching={isFetching}
       />
     );
   }
@@ -55,6 +56,7 @@ class SignUpContainer extends Component {
 
 const mapStateToProps = store => ({
   isAuth: store.user.auth,
+  isFetching: store.user.isFetching,
   error: store.user.error,
 });
 
