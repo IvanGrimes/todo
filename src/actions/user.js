@@ -1,9 +1,9 @@
 import { SIGN_IN_REQUEST, SIGN_OUT, SIGN_UP_REQUEST } from '../constants/actionTypes';
 
-export const signInRequest = (username, password) => ({
+export const signInRequest = (email, password) => ({
   type: SIGN_IN_REQUEST,
   payload: {
-    username,
+    email,
     password,
   },
 });

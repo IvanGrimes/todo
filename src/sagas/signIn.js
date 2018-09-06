@@ -8,9 +8,9 @@ import {
 
 function* fetchUser(action) {
   try {
-    const { username, password } = action.payload;
+    const { email, password } = action.payload;
     const user = yield call(
-      () => authRef().signInWithEmailAndPassword(username, password),
+      () => authRef().signInWithEmailAndPassword(email, password),
       action.payload.username,
     );
 
