@@ -12,6 +12,7 @@ const AddTodo = ({ content, handleChange, handleClick }) => (
     <button
       type="button"
       onClick={handleClick}
+      disabled={!content}
     >
       Add
     </button>

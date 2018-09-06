@@ -32,6 +32,8 @@ class AddTodoContainer extends Component {
       content,
       completed: false,
     });
+
+    this.setState({ content: '' });
   };
 
   render() {
