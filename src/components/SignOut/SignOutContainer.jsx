@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signOut } from '../../actions/user';
+import { setTodoListFilter } from '../../actions/todo';
+import { ALL } from '../../constants/filterTypes';
 import SignOut from './SignOut';
 
 class SignOutContainer extends Component {
@@ -26,9 +28,10 @@ class SignOutContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleSignOut: () => (
-    dispatch(signOut())
-  ),
+  handleSignOut: () => {
+    dispatch(signOut());
+    dispatch(setTodoListFilter(ALL));
+  },
 });
 
 export default connect(null, mapDispatchToProps)(SignOutContainer);
