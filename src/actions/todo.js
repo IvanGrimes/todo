@@ -11,3 +11,8 @@ export const getTodoListRequest = uid => ({
   type: GET_TODO_LIST_REQUEST,
   payload: uid,
 });
+
+export const addTodo = todo => ({
+  type: ADD_TODO,
+  payload: todo,
+});

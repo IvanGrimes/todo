@@ -1,10 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { authRef, database } from '../firebase';
+import snapshotToArray from '../utils/snapshotToArray';
 import {
   GET_TODO_LIST_REQUEST,
   GET_TODO_LIST_SUCCESS,
   GET_TODO_LIST_FAIL,
 } from '../constants/actionTypes';
+
 
 function* fetchTodoList() {
   try {
@@ -17,7 +19,7 @@ function* fetchTodoList() {
 
     yield put({
       type: GET_TODO_LIST_SUCCESS,
-      payload: todoList,
+      payload: snapshotToArray(todoList),
     });
   } catch (error) {
     yield put({

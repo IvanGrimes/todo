@@ -7,13 +7,19 @@ class Todo extends Component {
   renderItems() {
     const { todoList } = this.props;
 
-    return Object.entries(todoList).map(([key, prop]) => (
-      <div
-        key={key}
-      >
-        {prop}
-      </div>
-    ));
+    if (!todoList.length) {
+      return <p>You don't have any todo</p>;
+    }
+
+    return (
+      todoList.map(todo => (
+        <div
+          key={todo.key}
+        >
+          {todo.content}
+        </div>
+      ))
+    );
   }
 
   render() {

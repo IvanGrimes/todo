@@ -29,6 +29,11 @@ export default function todo(state = initialState, action) {
         ...state,
         error: action.payload,
       };
+    case ADD_TODO:
+      return {
+        ...state,
+        list: [...state.list, action.payload],
+      };
     default:
       return state;
   }

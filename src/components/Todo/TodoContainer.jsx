@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import SignOutContainer from '../SignOut/SignOutContainer';
 import { getTodoListRequest } from '../../actions/todo';
 import Todo from './Todo';
+import AddTodoContainer from '../AddTodo/AddTodoContainer';
 
 class TodoContainer extends Component {
   static propTypes = {
@@ -28,6 +29,7 @@ class TodoContainer extends Component {
         <Todo
           todoList={todoList}
         />
+        <AddTodoContainer />
       </Fragment>
     );
   }
