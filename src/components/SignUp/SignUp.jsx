@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Input from '../Input/Input';
 
 const SignUp = ({
   error,
@@ -11,7 +12,7 @@ const SignUp = ({
 }) => (
   <Fragment>
     <p>{error}</p>
-    <input
+    <Input
       type="email"
       id="email"
       onChange={handleChange}
@@ -19,7 +20,7 @@ const SignUp = ({
       placeholder="Email"
     />
 
-    <input
+    <Input
       type="password"
       id="password"
       onChange={handleChange}

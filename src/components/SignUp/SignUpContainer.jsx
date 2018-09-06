@@ -52,8 +52,6 @@ class SignUpContainer extends Component {
   }
 }
 
-SignUp.propTypes = {};
-
 const mapStateToProps = store => ({
   isAuth: store.user.auth,
   error: store.user.error,

@@ -13,7 +13,7 @@ export const signOut = () => ({
   payload: {
     uid: null,
     auth: false,
-    error: null,
+    error: '',
   },
 });
 

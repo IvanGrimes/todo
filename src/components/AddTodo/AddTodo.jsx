@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from '../Input/Input';
 
 const AddTodo = ({ content, handleChange, handleClick }) => (
   <div>
-    <input
+    <Input
       type="text"
       onChange={handleChange}
       value={content}

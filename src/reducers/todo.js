@@ -12,7 +12,7 @@ import { ALL } from '../constants/filterTypes';
 const initialState = {
   list: [],
   filter: ALL,
-  error: null,
+  error: '',
   isFetching: false,
 };
 
@@ -21,7 +21,7 @@ export default function todo(state = initialState, action) {
     case GET_TODO_LIST_REQUEST:
       return {
         ...state,
-        error: null,
+        error: '',
         isFetching: true,
       };
     case GET_TODO_LIST_SUCCESS:

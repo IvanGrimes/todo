@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from '../Input/Input';
 
 const SignIn = ({
   email,
@@ -8,7 +9,7 @@ const SignIn = ({
   handleClick,
 }) => (
   <div>
-    <input
+    <Input
       type="email"
       id="email"
       onChange={handleInput}
@@ -16,7 +17,7 @@ const SignIn = ({
       placeholder="Username"
     />
 
-    <input
+    <Input
       type="password"
       id="password"
       onChange={handleInput}

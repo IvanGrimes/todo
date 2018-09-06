@@ -9,7 +9,7 @@ import {
 const initialState = {
   uid: localStorage.getItem('uid') || null,
   auth: !!localStorage.getItem('uid'),
-  error: null,
+  error: '',
   isFetching: false,
 };
 
@@ -18,7 +18,7 @@ export default function user(state = initialState, action) {
     case SIGN_IN_REQUEST:
       return {
         ...state,
-        error: null,
+        error: '',
         isFetching: true,
       };
     case SIGN_IN_SUCCESS:
