@@ -1,42 +1,32 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class TodoItem extends Component {
-  static propTypes = {};
+const TodoItem = ({
+  content,
+  handleClickContent,
+  handleClickButton,
+  itemId,
+  completed,
+}) => (
+  <div
+    className={`todo__item ${completed ? 'todo__item--completed' : ''}`}
+  >
+    <button
+      type="button"
+      className="todo-item__button"
+      onClick={() => handleClickButton(itemId)}
+    >
+      X
+    </button>
 
-
-
-  render() {
-    const {
-      content,
-      handleClickContent,
-      handleClickButton,
-      itemId,
-      completed
-    } = this.props;
-
-    return (
-      <div
-        className={`todo__item ${completed ? 'todo__item--completed' : ''}`}
-      >
-        <button
-          type="button"
-          className="todo-item__button"
-          onClick={() => handleClickButton(itemId)}
-        >
-          X
-        </button>
-
-        <p
-          className="todo-item__content"
-          onClick={() => handleClickContent(itemId)}
-        >
-          {content}
-        </p>
-      </div>
-    );
-  }
-}
+    <p
+      className="todo-item__content"
+      onClick={() => handleClickContent(itemId)}
+    >
+      {content}
+    </p>
+  </div>
+);
 
 TodoItem.propTypes = {
   content: PropTypes.string.isRequired,
