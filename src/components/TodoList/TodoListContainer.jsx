@@ -20,26 +20,32 @@ class TodoListContainer extends Component {
   }
 
   render() {
-    const { isAuth, todoList } = this.props;
+    const { isAuth, todoList, isFetching } = this.props;
 
     if (!isAuth) {
       return <Redirect to="/login" />;
     }
+
     return (
-      <Fragment>
-        <SignOutContainer />
-        <TodoListFilterContainer />
-        <TodoList
-          todoList={todoList}
-        />
-        <AddTodoContainer />
-      </Fragment>
+      isFetching
+        ? <p>Fetching...</p>
+        : (
+          <Fragment>
+            <SignOutContainer />
+            <TodoListFilterContainer />
+            <TodoList
+              todoList={todoList}
+            />
+            <AddTodoContainer />
+          </Fragment>
+        )
     );
   }
 }
 
 const mapStateToProps = store => ({
   isAuth: store.user.auth,
+  isFetching: store.todo.isFetching,
   todoList: getFilteredTodoList(store),
 });
 

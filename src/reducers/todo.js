@@ -13,6 +13,7 @@ const initialState = {
   list: [],
   filter: ALL,
   error: null,
+  isFetching: false,
 };
 
 export default function todo(state = initialState, action) {
@@ -21,16 +22,19 @@ export default function todo(state = initialState, action) {
       return {
         ...state,
         error: null,
+        isFetching: true,
       };
     case GET_TODO_LIST_SUCCESS:
       return {
         ...state,
         list: action.payload,
+        isFetching: false,
       };
     case GET_TODO_LIST_FAIL:
       return {
         ...state,
         error: action.payload,
+        isFetching: false,
       };
     case ADD_TODO:
       return {
