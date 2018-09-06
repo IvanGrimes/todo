@@ -17,6 +17,7 @@ class Todo extends Component {
         key={todo.key}
         itemId={todo.key}
         content={todo.content}
+        completed={todo.completed}
       />
     ))
   }

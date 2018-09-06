@@ -39,6 +39,16 @@ export default function todo(state = initialState, action) {
         ...state,
         list: state.list.filter(todoItem => todoItem.key !== action.payload),
       };
+    case COMPLETE_TODO:
+      return {
+        ...state.list,
+        list: state.list.map((todoItem) => {
+          todoItem.completed = todoItem.key === action.payload
+            ? !todoItem.completed
+            : todoItem.completed;
+          return todoItem;
+        }),
+      };
     default:
       return state;
   }

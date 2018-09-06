@@ -9,15 +9,15 @@ class TodoItem extends Component {
   render() {
     const {
       content,
-      handleClickItem,
+      handleClickContent,
       handleClickButton,
       itemId,
+      completed
     } = this.props;
 
     return (
       <div
-        className="todo-item"
-        onClick={() => handleClickItem(itemId)}
+        className={`todo__item ${completed ? 'todo__item--completed' : ''}`}
       >
         <button
           className="todo-item__button"
@@ -26,7 +26,10 @@ class TodoItem extends Component {
           X
         </button>
 
-        <p className="todo-item__content">
+        <p
+          className="todo-item__content"
+          onClick={() => handleClickContent(itemId)}
+        >
           {content}
         </p>
       </div>

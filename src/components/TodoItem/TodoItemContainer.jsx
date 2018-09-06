@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
-import { deleteTodo } from '../../actions/todo';
+import { deleteTodo, completeTodo } from '../../actions/todo';
 import {database} from "../../firebase";
 
 class TodoItemContainer extends Component {
@@ -14,16 +14,24 @@ class TodoItemContainer extends Component {
     database.ref(`users/${localStorage.getItem('uid')}/todolist/${id}`).remove();
   };
 
-  handleClickItem = (id) => {};
+  handleClickContent = (id) => {
+    const { handleComplete, completed } = this.props;
+
+    handleComplete(id);
+    database.ref(`users/${localStorage.getItem('uid')}/todolist/${id}`).update({
+      completed: !completed,
+    });
+  };
 
   render() {
-    const { content, itemId } = this.props;
+    const { content, itemId, completed } = this.props;
     return (
       <TodoItem
         itemId={itemId}
         content={content}
         handleClickButton={this.handleClickButton}
-        handleClickItem={this.handleClickItem}
+        handleClickContent={this.handleClickContent}
+        completed={completed}
       />
     );
   }
@@ -31,6 +39,7 @@ class TodoItemContainer extends Component {
 
 const mapDispatchToState = dispatch => ({
   handleDelete: id => dispatch(deleteTodo(id)),
+  handleComplete: id => dispatch(completeTodo(id)),
 });
 
 export default connect(null, mapDispatchToState)(TodoItemContainer);
