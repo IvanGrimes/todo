@@ -1,11 +1,10 @@
 import {
   GET_TODO_LIST_REQUEST,
-  GET_TODO_LIST_SUCCESS,
-  GET_TODO_LIST_FAIL,
   ADD_TODO,
-  COMPLETE_TODO,
+  TOGGLE_TODO_STATE,
   DELETE_TODO,
-} from "../constants/actionTypes";
+  SET_TODO_LIST_FILTER,
+} from '../constants/actionTypes';
 
 export const getTodoListRequest = uid => ({
   type: GET_TODO_LIST_REQUEST,
@@ -22,7 +21,12 @@ export const deleteTodo = id => ({
   payload: id,
 });
 
-export const completeTodo = id => ({
-  type: COMPLETE_TODO,
+export const toggleTodoState = id => ({
+  type: TOGGLE_TODO_STATE,
   payload: id,
+});
+
+export const setTodoListFilter = filter => ({
+  type: SET_TODO_LIST_FILTER,
+  payload: filter,
 });

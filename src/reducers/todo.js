@@ -4,11 +4,14 @@ import {
   GET_TODO_LIST_FAIL,
   ADD_TODO,
   DELETE_TODO,
-  COMPLETE_TODO,
+  TOGGLE_TODO_STATE,
+  SET_TODO_LIST_FILTER,
 } from '../constants/actionTypes';
+import { ALL } from '../constants/filterTypes';
 
 const initialState = {
   list: [],
+  filter: ALL,
   error: null,
 };
 
@@ -39,8 +42,9 @@ export default function todo(state = initialState, action) {
         ...state,
         list: state.list.filter(todoItem => todoItem.key !== action.payload),
       };
-    case COMPLETE_TODO:
+    case TOGGLE_TODO_STATE:
       return {
+        ...state,
         ...state.list,
         list: state.list.map((todoItem) => {
           todoItem.completed = todoItem.key === action.payload
@@ -48,6 +52,11 @@ export default function todo(state = initialState, action) {
             : todoItem.completed;
           return todoItem;
         }),
+      };
+    case SET_TODO_LIST_FILTER:
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;

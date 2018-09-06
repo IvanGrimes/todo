@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
-import { deleteTodo, completeTodo } from '../../actions/todo';
+import { deleteTodo, toggleTodoState } from '../../actions/todo';
 import {database} from "../../firebase";
 
 class TodoItemContainer extends Component {
@@ -39,7 +39,7 @@ class TodoItemContainer extends Component {
 
 const mapDispatchToState = dispatch => ({
   handleDelete: id => dispatch(deleteTodo(id)),
-  handleComplete: id => dispatch(completeTodo(id)),
+  handleComplete: id => dispatch(toggleTodoState(id)),
 });
 
 export default connect(null, mapDispatchToState)(TodoItemContainer);

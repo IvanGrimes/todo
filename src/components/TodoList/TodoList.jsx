@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TodoItemContainer from '../TodoItem/TodoItemContainer';
 
-class Todo extends Component {
+class TodoList extends Component {
   static propTypes = {};
 
   renderItems() {
@@ -31,4 +31,4 @@ class Todo extends Component {
   }
 }
 
-export default Todo;
+export default TodoList;

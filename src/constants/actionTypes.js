@@ -4,13 +4,11 @@ export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
 export const SIGN_OUT = 'SIGN_OUT';
 
-// Todo
+// TodoList
 export const GET_TODO_LIST_REQUEST = 'GET_TODO_LIST_REQUEST';
 export const GET_TODO_LIST_SUCCESS = 'GET_TODO_LIST_SUCCESS';
 export const GET_TODO_LIST_FAIL = 'GET_TODO_LIST_FAIL';
 export const ADD_TODO = 'ADD_TODO';
-export const ADD_TODO_REQUEST = 'ADD_TODO_REQUEST';
-export const ADD_TODO_SUCCESS = 'ADD_TODO_REQUEST';
-export const ADD_TODO_FAIL = 'ADD_TODO_REQUEST';
-export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const TOGGLE_TODO_STATE = 'TOGGLE_TODO_STATE';
 export const DELETE_TODO = 'DELETE_TODO';
+export const SET_TODO_LIST_FILTER = 'SET_TODO_LIST_FILTER';

@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import SignOutContainer from '../SignOut/SignOutContainer';
 import { getTodoListRequest, deleteTodo } from '../../actions/todo';
-import Todo from './Todo';
+import TodoList from './TodoList';
 import AddTodoContainer from '../AddTodo/AddTodoContainer';
+import TodoListFilterContainer from '../TodoListFilter/TodoListFilterContainer';
+import { getFilteredTodoList } from '../../selectors';
 
-class TodoContainer extends Component {
+class TodoListContainer extends Component {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
   };
@@ -26,7 +28,8 @@ class TodoContainer extends Component {
     return (
       <Fragment>
         <SignOutContainer />
-        <Todo
+        <TodoListFilterContainer />
+        <TodoList
           todoList={todoList}
         />
         <AddTodoContainer />
@@ -37,7 +40,7 @@ class TodoContainer extends Component {
 
 const mapStateToProps = store => ({
   isAuth: store.user.auth,
-  todoList: store.todo.list,
+  todoList: getFilteredTodoList(store),
 });
 
 const mapDispatchToState = dispatch => ({
@@ -46,4 +49,4 @@ const mapDispatchToState = dispatch => ({
   ),
 });
 
-export default connect(mapStateToProps, mapDispatchToState)(TodoContainer);
+export default connect(mapStateToProps, mapDispatchToState)(TodoListContainer);
