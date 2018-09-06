@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signInRequest } from '../../actions/user';
@@ -32,25 +32,45 @@ class SignInContainer extends Component {
 
   render() {
     const { username, password } = this.state;
-    const { isAuth } = this.props;
+    const { isAuth, isFetching, error } = this.props;
 
     if (isAuth) {
       return <Redirect to="/" />;
     }
 
+    if (error) {
+      return (
+        <Fragment>
+          <p>{error}</p>
+          <SignIn
+            username={username}
+            password={password}
+            handleInput={this.handleInput}
+            handleClick={this.handleClick}
+          />
+        </Fragment>
+      );
+    }
+
     return (
-      <SignIn
-        username={username}
-        password={password}
-        handleInput={this.handleInput}
-        handleClick={this.handleClick}
-      />
+      isFetching
+        ? <p>Fetching...</p>
+        : (
+          <SignIn
+            username={username}
+            password={password}
+            handleInput={this.handleInput}
+            handleClick={this.handleClick}
+          />
+        )
     );
   }
 }
 
 const mapStateToProps = store => ({
   isAuth: store.user.auth,
+  isFetching: store.user.isFetching,
+  error: store.user.error,
 });
 
 const mapDispatchToProps = dispatch => ({

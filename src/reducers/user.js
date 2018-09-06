@@ -9,6 +9,7 @@ const initialState = {
   uid: localStorage.getItem('uid') || null,
   auth: !!localStorage.getItem('uid'),
   error: null,
+  isFetching: false,
 };
 
 export default function user(state = initialState, action) {
@@ -17,17 +18,20 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         error: null,
+        isFetching: true,
       };
     case SIGN_IN_SUCCESS:
       return {
         ...state,
         uid: action.payload,
         auth: true,
+        isFetching: false,
       };
     case SIGN_IN_FAIL:
       return {
         ...state,
         error: action.payload,
+        isFetching: false,
       };
     case SIGN_OUT:
       localStorage.removeItem('uid');
