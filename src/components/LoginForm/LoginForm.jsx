@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './LoginForm.css';
+import { IconContext } from 'react-icons';
+import { FaUser, FaKey } from 'react-icons/fa';
 
 const LoginForm = ({
   email,
@@ -20,25 +22,36 @@ const LoginForm = ({
         {error}
       </p>
 
-      <input
-        className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
-        type="email"
-        id="email"
-        onChange={handleChange}
-        value={email}
-        placeholder="Username"
-        disabled={isFetching}
-      />
+      <div className="login-form__input-wrapper">
+        <input
+          className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
+          type="email"
+          id="email"
+          onChange={handleChange}
+          value={email}
+          placeholder="Username"
+          disabled={isFetching}
+        />
+        <IconContext.Provider value={{ className: 'login-form__input-icon' }}>
+          <FaUser />
+        </IconContext.Provider>
+      </div>
 
-      <input
-        className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
-        type="password"
-        id="password"
-        onChange={handleChange}
-        value={password}
-        placeholder="Password"
-        disabled={isFetching}
-      />
+      <div className="login-form__input-wrapper">
+        <input
+          className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
+          type="password"
+          id="password"
+          onChange={handleChange}
+          value={password}
+          placeholder="Password"
+          disabled={isFetching}
+        />
+        <IconContext.Provider value={{ className: 'login-form__input-icon' }}>
+          <FaKey />
+        </IconContext.Provider>
+      </div>
+
 
       <div className="login-form__controls">
         <button
