@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './TodoItem.css';
+import { IconContext } from 'react-icons';
+import { FaTimes } from 'react-icons/fa';
 
 const TodoItem = ({
   content,
@@ -9,22 +12,24 @@ const TodoItem = ({
   completed,
 }) => (
   <div
-    className={`todo__item ${completed ? 'todo__item--completed' : ''}`}
+    className={`todo-item ${completed ? 'todo-item--completed' : ''}`}
   >
+    <div
+      className="todo-item__content"
+      onClick={() => handleClickContent(itemId)}
+    >
+      {content}
+    </div>
+
     <button
       type="button"
       className="todo-item__button"
       onClick={() => handleClickButton(itemId)}
     >
-      X
+      <IconContext.Provider value={{ className: 'todo-item__button-icon' }}>
+        <FaTimes />
+      </IconContext.Provider>
     </button>
-
-    <p
-      className="todo-item__content"
-      onClick={() => handleClickContent(itemId)}
-    >
-      {content}
-    </p>
   </div>
 );
 

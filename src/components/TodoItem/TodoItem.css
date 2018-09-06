@@ -1,0 +1,62 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 35px 0 0 0;
+  padding: 35px 0 0 2em;
+  border-top: 1px solid rgba(127, 150, 176, 0.31);
+}
+
+.todo-item:first-child {
+  margin: 0;
+}
+
+.todo-item__content {
+  position: relative;
+  max-width: calc(100% - 2em);
+  width: 100%;
+  word-break: break-all;
+  font-size: 22px;
+  cursor: pointer;
+  color: #3b4457;
+}
+
+.todo-item__content::before {
+  position: absolute;
+  content: '';
+  text-decoration: line-through;
+  width: 0;
+  height: 3px;
+  border-radius: 50px;
+  background-color: #465265;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: width .3s linear;
+}
+
+.todo-item:not(.todo-item--completed) > .todo-item__content:hover::before {
+  width: 33%;
+}
+
+.todo-item--completed > .todo-item__content::before {
+  width: 100%;
+  transition: width .75s linear;
+}
+
+.todo-item__button {
+  border: 0;
+  background: 0;
+  cursor: pointer;
+}
+
+.todo-item__button-icon {
+  width: 1.8em;
+  height: 1.8em;
+  color: #7f96b0;
+  transition: opacity .15s linear;
+}
+
+.todo-item__button-icon:hover {
+  opacity: .5;
+}

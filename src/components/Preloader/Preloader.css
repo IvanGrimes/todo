@@ -2,8 +2,8 @@
   height: 30px;
   width: 30px;
   margin: 40vh auto;
-  border: 5px solid rgba(60,60,180,0.45);
-  border-top: 5px solid rgb(60,60,180);
+  border: 5px solid rgba(128, 143, 193, 0.45);
+  border-top: 5px solid rgb(102, 117, 164);
   border-radius: 50%;
   animation: rotate .65s infinite linear;
 }

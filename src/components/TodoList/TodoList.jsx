@@ -19,17 +19,25 @@ const TodoList = ({ todoList, isFetching, currentFilter }) => {
         <TodoListFilterContainer />
         <SignOutContainer />
       </div>
-      {todoList.map(todo => (
-        <TodoItemContainer
-          key={todo.key}
-          itemId={todo.key}
-          content={todo.content}
-          completed={todo.completed}
-        />
-      ))}
-      { !todoList.length && currentFilter === ALL && <p>Add your first todo ;)</p> }
-      { !todoList.length && currentFilter === ACTIVE && <p>You are complete all your todos ^^</p> }
-      { !todoList.length && currentFilter === COMPLETED && <p>You are not complete any of your todo :)</p> }
+      <div className="todo-list__items">
+        {todoList.map(todo => (
+          <TodoItemContainer
+            key={todo.key}
+            itemId={todo.key}
+            content={todo.content}
+            completed={todo.completed}
+          />
+        ))}
+        { !todoList.length
+        && currentFilter === ALL
+        && <p className="todo-list__empty-text">Add your first todo ;)</p> }
+        { !todoList.length
+        && currentFilter === ACTIVE
+        && <p className="todo-list__empty-text">You are complete all your todos ^^</p> }
+        { !todoList.length
+        && currentFilter === COMPLETED
+        && <p className="todo-list__empty-text">You are not complete any of your todo :)</p> }
+      </div>
       <AddTodoContainer />
     </div>
   );

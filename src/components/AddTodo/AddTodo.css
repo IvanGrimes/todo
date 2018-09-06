@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   width: 100%;
+  margin-top: 75px;
 }
 
 .add-todo__input {
