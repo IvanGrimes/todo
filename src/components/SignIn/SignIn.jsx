@@ -5,6 +5,7 @@ const SignIn = ({ email, password, handleInput, handleClick }) => (
   <div>
     <input
       type="email"
+      id="email"
       onChange={handleInput}
       value={email}
       placeholder="Username"
@@ -12,6 +13,7 @@ const SignIn = ({ email, password, handleInput, handleClick }) => (
 
     <input
       type="password"
+      id="password"
       onChange={handleInput}
       value={password}
       placeholder="Password"

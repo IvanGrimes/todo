@@ -17,9 +17,9 @@ class SignInContainer extends Component {
   };
 
   handleInput = (ev) => {
-    const { type, value } = ev.target;
+    const { id, value } = ev.target;
 
-    this.setState({ [type]: value });
+    this.setState({ [id]: value });
   };
 
   handleClick = (ev) => {
