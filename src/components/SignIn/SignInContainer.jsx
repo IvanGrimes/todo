@@ -45,13 +45,15 @@ class SignInContainer extends Component {
         ? <p>Fetching...</p>
         : (
           <Fragment>
-            <p>{error}</p>
             <SignIn
               email={email}
               password={password}
               handleInput={this.handleInput}
               handleClick={this.handleClick}
+              error={error}
+              buttonText="Sign In"
             />
+
             <Link to="/register">Sign Up</Link>
           </Fragment>
         )

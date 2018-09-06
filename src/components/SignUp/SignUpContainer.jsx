@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUpRequest } from '../../actions/user';
 import SignUp from './SignUp';
 
 class SignUpContainer extends Component {
-  propTypes = {
+  static propTypes = {
     handleSignUp: PropTypes.func.isRequired,
     isAuth: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
@@ -46,7 +46,12 @@ class SignUpContainer extends Component {
           handleClick={this.handleClick}
           email={email}
           password={password}
+          buttonText="Sign Up"
         />
+
+        <Link to="/login">
+          Sign In
+        </Link>
       </div>
     );
   }

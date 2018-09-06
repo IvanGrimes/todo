@@ -1,38 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../Input/Input';
+import LoginForm from '../LoginForm/LoginForm';
 
-const SignIn = ({
-  email,
-  password,
-  handleInput,
-  handleClick,
-}) => (
+const SignIn = props => (
   <div>
-    <Input
-      type="email"
-      id="email"
-      onChange={handleInput}
-      value={email}
-      placeholder="Username"
+    <LoginForm
+      {...props}
     />
-
-    <Input
-      type="password"
-      id="password"
-      onChange={handleInput}
-      value={password}
-      placeholder="Password"
-    />
-
-    <button
-      type="button"
-      onClick={(ev) => {
-        handleClick(ev);
-      }}
-    >
-      Login
-    </button>
   </div>
 );
 
