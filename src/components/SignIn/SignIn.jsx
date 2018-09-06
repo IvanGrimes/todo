@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SignIn = ({ username, password, handleInput, handleClick }) => (
+const SignIn = ({ email, password, handleInput, handleClick }) => (
   <div>
     <input
-      id="username"
-      type="text"
+      type="email"
       onChange={handleInput}
-      value={username}
+      value={email}
       placeholder="Username"
     />
 
     <input
-      id="password"
       type="password"
       onChange={handleInput}
       value={password}
@@ -31,7 +29,7 @@ const SignIn = ({ username, password, handleInput, handleClick }) => (
 );
 
 SignIn.propTypes = {
-  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   handleInput: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,

@@ -1,17 +1,17 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { authRef } from '../firebase';
 import {
-  SIGN_IN_REQUEST,
+  SIGN_UP_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAIL,
 } from '../constants/actionTypes';
 
-function* fetchUser(action) {
+function* createUser(action) {
   try {
-    const { username, password } = action.payload;
+    const { email, password } = action.payload;
     const user = yield call(
-      () => authRef().signInWithEmailAndPassword(username, password),
-      action.payload.username,
+      () => authRef().createUserWithEmailAndPassword(email, password),
+      action.payload.email,
     );
 
     localStorage.setItem('uid', user.user.uid);
@@ -28,6 +28,6 @@ function* fetchUser(action) {
   }
 }
 
-export const signIn = [
-  takeLatest(SIGN_IN_REQUEST, fetchUser),
+export const signUp = [
+  takeLatest(SIGN_UP_REQUEST, createUser),
 ];

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signInRequest } from '../../actions/user';
 import SignIn from './SignIn';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class SignInContainer extends Component {
   static propTypes = {
@@ -12,56 +12,46 @@ class SignInContainer extends Component {
   };
 
   state = {
-    username: '',
+    email: '',
     password: '',
   };
 
   handleInput = (ev) => {
-    const { id, value } = ev.target;
+    const { type, value } = ev.target;
 
-    this.setState({ [id]: value });
+    this.setState({ [type]: value });
   };
 
   handleClick = (ev) => {
     ev.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     const { handleSignIn } = this.props;
 
-    handleSignIn(username, password);
+    handleSignIn(email, password);
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     const { isAuth, isFetching, error } = this.props;
 
     if (isAuth) {
       return <Redirect to="/" />;
     }
 
-    if (error) {
-      return (
-        <Fragment>
-          <p>{error}</p>
-          <SignIn
-            username={username}
-            password={password}
-            handleInput={this.handleInput}
-            handleClick={this.handleClick}
-          />
-        </Fragment>
-      );
-    }
-
     return (
       isFetching
         ? <p>Fetching...</p>
         : (
-          <SignIn
-            username={username}
-            password={password}
-            handleInput={this.handleInput}
-            handleClick={this.handleClick}
-          />
+          <Fragment>
+            <p>{error}</p>
+            <SignIn
+              email={email}
+              password={password}
+              handleInput={this.handleInput}
+              handleClick={this.handleClick}
+            />
+            <Link to="/register">Sign Up</Link>
+          </Fragment>
         )
     );
   }

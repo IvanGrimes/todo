@@ -3,6 +3,9 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_OUT,
+  SIGN_UP_REQUEST,
+  SIGN_UP_SUCCESS,
+  SIGN_UP_FAIL,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -38,6 +41,12 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         ...action.payload,
+      };
+    case SIGN_UP_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
       };
     default:
       return state;

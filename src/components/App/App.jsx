@@ -5,11 +5,13 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import TodoListContainer from '../TodoList/TodoListContainer';
 import './App.css';
+import SignUp from '../SignUp/SignUp';
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>
     <Switch>
       <Route path="/login" component={SignInContainer} />
+      <Route path="/register" component={SignUp} />
       <Route path="/" component={TodoListContainer} />
     </Switch>
   </ConnectedRouter>
