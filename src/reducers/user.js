@@ -4,6 +4,7 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_OUT,
   SIGN_UP_REQUEST,
+  CLEAR_ERROR,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -44,6 +45,11 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         isFetching: true,
+        error: '',
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
         error: '',
       };
     default:

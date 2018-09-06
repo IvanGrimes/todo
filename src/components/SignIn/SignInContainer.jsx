@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { signInRequest } from '../../actions/user';
+import { clearError, signInRequest } from '../../actions/user';
 import SignIn from './SignIn';
 
 class SignInContainer extends Component {
@@ -31,6 +31,11 @@ class SignInContainer extends Component {
 
     handleSignIn(email, password);
   };
+
+  componentDidMount() {
+    const { clearErrorMessage } = this.props;
+    clearErrorMessage();
+  }
 
   render() {
     const { email, password } = this.state;
@@ -65,6 +70,9 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   handleSignIn: (username, password) => (
     dispatch(signInRequest(username, password))
+  ),
+  clearErrorMessage: () => (
+    dispatch(clearError())
   ),
 });
 

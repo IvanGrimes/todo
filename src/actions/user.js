@@ -1,4 +1,9 @@
-import { SIGN_IN_REQUEST, SIGN_OUT, SIGN_UP_REQUEST } from '../constants/actionTypes';
+import {
+  SIGN_IN_REQUEST,
+  SIGN_OUT,
+  SIGN_UP_REQUEST,
+  CLEAR_ERROR,
+} from '../constants/actionTypes';
 
 export const signInRequest = (email, password) => ({
   type: SIGN_IN_REQUEST,
@@ -23,4 +28,9 @@ export const signUpRequest = (email, password) => ({
     email,
     password,
   },
+});
+
+export const clearError = () => ({
+  type: CLEAR_ERROR,
+  payload: null,
 });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signUpRequest } from '../../actions/user';
+import { signUpRequest, clearError } from '../../actions/user';
 import SignUp from './SignUp';
 
 class SignUpContainer extends Component {
@@ -15,6 +15,7 @@ class SignUpContainer extends Component {
   state = {
     email: '',
     password: '',
+    prevRoute: null,
   };
 
   handleChange = (ev) => {
@@ -29,6 +30,11 @@ class SignUpContainer extends Component {
 
     handleSignUp(email, password);
   };
+
+  componentDidMount() {
+    const { clearErrorMessage } = this.props;
+    clearErrorMessage();
+  }
 
   render() {
     const { isAuth, error, isFetching } = this.props;
@@ -63,6 +69,9 @@ const mapStateToProps = store => ({
 const mapDispatchToState = dispatch => ({
   handleSignUp: (email, password) => (
     dispatch(signUpRequest(email, password))
+  ),
+  clearErrorMessage: () => (
+    dispatch(clearError())
   ),
 });
 
