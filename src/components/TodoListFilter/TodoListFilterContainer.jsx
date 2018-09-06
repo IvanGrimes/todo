@@ -20,8 +20,11 @@ class TodoListFilterContainer extends Component {
   };
 
   render() {
+    const { currentFilter } = this.props;
+
     return (
       <TodoListFilter
+        currentFilter={currentFilter}
         filters={[ALL, ACTIVE, COMPLETED]}
         handleClick={this.handleClick}
       />
@@ -29,8 +32,12 @@ class TodoListFilterContainer extends Component {
   }
 }
 
+const mapStateToProps = store => ({
+  currentFilter: store.todo.filter,
+});
+
 const mapDispatchToState = dispatch => ({
   handleFilter: filter => dispatch(setTodoListFilter(filter)),
 });
 
-export default connect(null, mapDispatchToState)(TodoListFilterContainer);
+export default connect(mapStateToProps, mapDispatchToState)(TodoListFilterContainer);

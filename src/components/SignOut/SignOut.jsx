@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../Button/Button';
 
 const SignOut = ({ handleClick }) => (
-  <button
+  <Button
     type="button"
     onClick={handleClick}
   >
     Sign out
-  </button>
+  </Button>
 );
 
 SignOut.propTypes = {

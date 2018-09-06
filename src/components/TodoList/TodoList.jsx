@@ -6,6 +6,7 @@ import SignOutContainer from '../SignOut/SignOutContainer';
 import TodoListFilterContainer from '../TodoListFilter/TodoListFilterContainer';
 import AddTodoContainer from '../AddTodo/AddTodoContainer';
 import { ALL, ACTIVE, COMPLETED } from '../../constants/filterTypes';
+import './TodoList.css';
 
 const TodoList = ({ todoList, isFetching, currentFilter }) => {
   if (isFetching) {
@@ -13,9 +14,11 @@ const TodoList = ({ todoList, isFetching, currentFilter }) => {
   }
 
   return (
-    <Fragment>
-      <SignOutContainer />
-      <TodoListFilterContainer />
+    <div className="todo-list">
+      <div className="todo-list__controls">
+        <TodoListFilterContainer />
+        <SignOutContainer />
+      </div>
       {todoList.map(todo => (
         <TodoItemContainer
           key={todo.key}
@@ -28,7 +31,7 @@ const TodoList = ({ todoList, isFetching, currentFilter }) => {
       { !todoList.length && currentFilter === ACTIVE && <p>You are complete all your todos ^^</p> }
       { !todoList.length && currentFilter === COMPLETED && <p>You are not complete any of your todo :)</p> }
       <AddTodoContainer />
-    </Fragment>
+    </div>
   );
 };
 

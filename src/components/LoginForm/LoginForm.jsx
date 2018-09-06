@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './LoginForm.css';
 import { IconContext } from 'react-icons';
 import { FaUser, FaKey } from 'react-icons/fa';
+import Button from '../Button/Button';
 
 const LoginForm = ({
   email,
@@ -54,7 +55,7 @@ const LoginForm = ({
 
 
       <div className="login-form__controls">
-        <button
+        <Button
           className={`login-form__controls-button ${error.length ? 'login-form__button--is-not-valid' : ''}`}
           type="button"
           disabled={isFetching}
@@ -63,7 +64,7 @@ const LoginForm = ({
           }}
         >
           {buttonText}
-        </button>
+        </Button>
 
         <Link
           className={`login-form__controls-link ${isFetching ? 'login-form__controls-link--disabled' : ''}`}

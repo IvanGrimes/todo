@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './AddTodo.css';
+import { IconContext } from 'react-icons';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const AddTodo = ({ content, handleChange, handleClick }) => (
-  <div>
+  <div className="add-todo">
     <input
+      className="add-todo__input"
       type="text"
       onChange={handleChange}
       value={content}
     />
 
     <button
+      className="add-todo__button"
       type="button"
       onClick={handleClick}
       disabled={!content}
     >
-      Add
+      <IconContext.Provider value={{ className: 'add-todo__button-icon' }}>
+        <FaPlusCircle />
+      </IconContext.Provider>
     </button>
   </div>
 );

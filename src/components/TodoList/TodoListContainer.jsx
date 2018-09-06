@@ -33,13 +33,11 @@ class TodoListContainer extends Component {
     }
 
     return (
-      <Fragment>
-        <TodoList
-          todoList={todoList}
-          isFetching={isFetching}
-          currentFilter={currentFilter}
-        />
-      </Fragment>
+      <TodoList
+        todoList={todoList}
+        isFetching={isFetching}
+        currentFilter={currentFilter}
+      />
     );
   }
 }

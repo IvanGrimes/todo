@@ -1,0 +1,9 @@
+.todo-list {
+  width: 600px;
+  margin: 50px auto 0 auto;
+}
+
+.todo-list__controls {
+  display: flex;
+  justify-content: space-between;
+}

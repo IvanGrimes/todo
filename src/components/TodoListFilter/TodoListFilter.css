@@ -1,0 +1,15 @@
+.todo-list-filter {
+  display: flex;
+  margin: 0 0 0 -20px;
+}
+
+.todo-list-filter__button {
+  margin: 0 0 0 20px;
+  font-size: 12px;
+  min-width: 100px;
+  border-width: 1px;
+}
+
+.todo-list-filter__button--active {
+  background-color: rgba(185, 201, 218, 0.3);
+}
