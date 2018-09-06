@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import LoginForm from '../LoginForm/LoginForm';
 
 const SignIn = props => (
-  <div>
-    <LoginForm
-      {...props}
-    />
-  </div>
+  <LoginForm
+    {...props}
+  />
 );
 
 SignIn.propTypes = {

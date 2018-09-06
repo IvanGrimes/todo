@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../Input/Input';
+import { Link, Redirect } from 'react-router-dom';
+import './LoginForm.css';
 
 const LoginForm = ({
   email,
@@ -9,14 +10,17 @@ const LoginForm = ({
   handleInput,
   handleClick,
   error,
+  linkTo,
+  linkText,
 }) => {
   return (
-    <div className="form">
-      <p className="form__error">
+    <div className="login-form">
+      <p className="login-form__error">
         {error}
       </p>
 
-      <Input
+      <input
+        className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
         type="email"
         id="email"
         onChange={handleInput}
@@ -24,7 +28,8 @@ const LoginForm = ({
         placeholder="Username"
       />
 
-      <Input
+      <input
+        className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
         type="password"
         id="password"
         onChange={handleInput}
@@ -32,14 +37,21 @@ const LoginForm = ({
         placeholder="Password"
       />
 
-      <button
-        type="button"
-        onClick={(ev) => {
-          handleClick(ev);
-        }}
-      >
-        {buttonText}
-      </button>
+      <div className="login-form__controls">
+        <button
+          className={`login-form__controls-button ${error.length ? 'login-form__button--is-not-valid' : ''}`}
+          type="button"
+          onClick={(ev) => {
+            handleClick(ev);
+          }}
+        >
+          {buttonText}
+        </button>
+
+        <Link className="login-form__controls-link" to={linkTo}>
+          {linkText}
+        </Link>
+      </div>
     </div>
   );
 };

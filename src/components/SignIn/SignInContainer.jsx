@@ -1,9 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { signInRequest } from '../../actions/user';
 import SignIn from './SignIn';
-import { Redirect, Link } from 'react-router-dom';
 
 class SignInContainer extends Component {
   static propTypes = {
@@ -44,18 +44,16 @@ class SignInContainer extends Component {
       isFetching
         ? <p>Fetching...</p>
         : (
-          <Fragment>
-            <SignIn
-              email={email}
-              password={password}
-              handleInput={this.handleInput}
-              handleClick={this.handleClick}
-              error={error}
-              buttonText="Sign In"
-            />
-
-            <Link to="/register">Sign Up</Link>
-          </Fragment>
+          <SignIn
+            email={email}
+            password={password}
+            handleInput={this.handleInput}
+            handleClick={this.handleClick}
+            error={error}
+            buttonText="Sign In"
+            linkTo="/register"
+            linkText="Sign Up"
+          />
         )
     );
   }
