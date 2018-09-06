@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUpRequest } from '../../actions/user';
 import SignUp from './SignUp';
 
 class SignUpContainer extends Component {
+  propTypes = {
+    handleSignUp: PropTypes.func.isRequired,
+    isAuth: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
+  };
+
   state = {
     email: '',
     password: '',

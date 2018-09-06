@@ -1,8 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { signUpRequest } from '../../actions/user';
+import { Link } from 'react-router-dom';
 
 const SignUp = ({
   error,
@@ -39,5 +37,13 @@ const SignUp = ({
     <Link to="/login">Sign In</Link>
   </Fragment>
 );
+
+SignUp.propTypes = {
+  error: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default SignUp;

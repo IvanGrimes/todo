@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import SignOutContainer from '../SignOut/SignOutContainer';
-import { getTodoListRequest, deleteTodo } from '../../actions/todo';
+import { getTodoListRequest } from '../../actions/todo';
 import TodoList from './TodoList';
 import AddTodoContainer from '../AddTodo/AddTodoContainer';
 import TodoListFilterContainer from '../TodoListFilter/TodoListFilterContainer';
@@ -12,6 +12,9 @@ import { getFilteredTodoList } from '../../selectors';
 class TodoListContainer extends Component {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
+    getTodoList: PropTypes.func.isRequired,
+    todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    isFetching: PropTypes.bool.isRequired,
   };
 
   componentDidMount() {

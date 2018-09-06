@@ -7,7 +7,9 @@ import AddTodo from './AddTodo';
 import { database } from '../../firebase';
 
 class AddTodoContainer extends Component {
-  static propTypes = {};
+  static propTypes = {
+    handleAdd: PropTypes.func.isRequired,
+  };
 
   state = {
     content: '',

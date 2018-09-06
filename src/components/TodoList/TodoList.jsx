@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import TodoItemContainer from '../TodoItem/TodoItemContainer';
 
 class TodoList extends Component {
-  static propTypes = {};
+  static propTypes = {
+    todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  };
 
   renderItems() {
     const { todoList } = this.props;
@@ -19,7 +21,7 @@ class TodoList extends Component {
         content={todo.content}
         completed={todo.completed}
       />
-    ))
+    ));
   }
 
   render() {

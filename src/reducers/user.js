@@ -4,8 +4,6 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_OUT,
   SIGN_UP_REQUEST,
-  SIGN_UP_SUCCESS,
-  SIGN_UP_FAIL,
 } from '../constants/actionTypes';
 
 const initialState = {

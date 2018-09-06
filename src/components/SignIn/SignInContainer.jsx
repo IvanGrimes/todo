@@ -9,6 +9,8 @@ class SignInContainer extends Component {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
     handleSignIn: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
   };
 
   state = {

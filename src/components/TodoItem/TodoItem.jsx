@@ -20,6 +20,7 @@ class TodoItem extends Component {
         className={`todo__item ${completed ? 'todo__item--completed' : ''}`}
       >
         <button
+          type="button"
           className="todo-item__button"
           onClick={() => handleClickButton(itemId)}
         >
@@ -37,6 +38,12 @@ class TodoItem extends Component {
   }
 }
 
+TodoItem.propTypes = {
+  content: PropTypes.string.isRequired,
+  handleClickContent: PropTypes.func.isRequired,
+  handleClickButton: PropTypes.func.isRequired,
+  itemId: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
+};
 
 export default TodoItem;
-

@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SignIn = ({ email, password, handleInput, handleClick }) => (
+const SignIn = ({
+  email,
+  password,
+  handleInput,
+  handleClick,
+}) => (
   <div>
     <input
       type="email"

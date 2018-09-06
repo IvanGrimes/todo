@@ -6,7 +6,13 @@ import { deleteTodo, toggleTodoState } from '../../actions/todo';
 import {database} from "../../firebase";
 
 class TodoItemContainer extends Component {
-  static propTypes = {};
+  static propTypes = {
+    handleDelete: PropTypes.func.isRequired,
+    handleComplete: PropTypes.func.isRequired,
+    completed: PropTypes.bool.isRequired,
+    content: PropTypes.string.isRequired,
+    itemId: PropTypes.string.isRequired,
+  };
 
   handleClickButton = (id) => {
     const { handleDelete } = this.props;

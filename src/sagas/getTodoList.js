@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { authRef, database } from '../firebase';
+import { database } from '../firebase';
 import snapshotToArray from '../utils/snapshotToArray';
 import {
   GET_TODO_LIST_REQUEST,

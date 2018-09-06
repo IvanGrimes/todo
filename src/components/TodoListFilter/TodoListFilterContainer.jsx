@@ -10,6 +10,10 @@ import {
 } from '../../constants/filterTypes';
 
 class TodoListFilterContainer extends Component {
+  static propTypes = {
+    handleFilter: PropTypes.func.isRequired,
+  };
+
   handleClick = (filter) => {
     const { handleFilter } = this.props;
     handleFilter(filter);
