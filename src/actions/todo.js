@@ -21,9 +21,12 @@ export const deleteTodo = id => ({
   payload: id,
 });
 
-export const toggleTodoState = id => ({
+export const toggleTodoState = (id, completed) => ({
   type: TOGGLE_TODO_STATE,
-  payload: id,
+  payload: {
+    id,
+    completed,
+  },
 });
 
 export const setTodoListFilter = filter => ({

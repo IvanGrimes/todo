@@ -11,12 +11,18 @@ class SignInContainer extends Component {
     handleSignIn: PropTypes.func.isRequired,
     isFetching: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
+    clearErrorMessage: PropTypes.func.isRequired,
   };
 
   state = {
     email: '',
     password: '',
   };
+
+  componentDidMount() {
+    const { clearErrorMessage } = this.props;
+    clearErrorMessage();
+  }
 
   handleChange = (ev) => {
     const { id, value } = ev.target;
@@ -31,11 +37,6 @@ class SignInContainer extends Component {
 
     handleSignIn(email, password);
   };
-
-  componentDidMount() {
-    const { clearErrorMessage } = this.props;
-    clearErrorMessage();
-  }
 
   render() {
     const { email, password } = this.state;

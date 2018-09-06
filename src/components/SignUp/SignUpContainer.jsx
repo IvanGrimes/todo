@@ -10,13 +10,19 @@ class SignUpContainer extends Component {
     handleSignUp: PropTypes.func.isRequired,
     isAuth: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    clearErrorMessage: PropTypes.func.isRequired,
   };
 
   state = {
     email: '',
     password: '',
-    prevRoute: null,
   };
+
+  componentDidMount() {
+    const { clearErrorMessage } = this.props;
+    clearErrorMessage();
+  }
 
   handleChange = (ev) => {
     const { value, id } = ev.target;
@@ -30,11 +36,6 @@ class SignUpContainer extends Component {
 
     handleSignUp(email, password);
   };
-
-  componentDidMount() {
-    const { clearErrorMessage } = this.props;
-    clearErrorMessage();
-  }
 
   render() {
     const { isAuth, error, isFetching } = this.props;

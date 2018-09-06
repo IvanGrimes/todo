@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
 import { deleteTodo, toggleTodoState } from '../../actions/todo';
-import {database} from "../../firebase";
 
 class TodoItemContainer extends Component {
   static propTypes = {
@@ -17,16 +16,11 @@ class TodoItemContainer extends Component {
   handleClickButton = (id) => {
     const { handleDelete } = this.props;
     handleDelete(id);
-    database.ref(`users/${localStorage.getItem('uid')}/todolist/${id}`).remove();
   };
 
   handleClickContent = (id) => {
     const { handleComplete, completed } = this.props;
-
-    handleComplete(id);
-    database.ref(`users/${localStorage.getItem('uid')}/todolist/${id}`).update({
-      completed: !completed,
-    });
+    handleComplete(id, !completed);
   };
 
   render() {
@@ -45,7 +39,7 @@ class TodoItemContainer extends Component {
 
 const mapDispatchToState = dispatch => ({
   handleDelete: id => dispatch(deleteTodo(id)),
-  handleComplete: id => dispatch(toggleTodoState(id)),
+  handleComplete: (id, completed) => dispatch(toggleTodoState(id, completed)),
 });
 
 export default connect(null, mapDispatchToState)(TodoItemContainer);

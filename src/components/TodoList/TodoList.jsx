@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItemContainer from '../TodoItem/TodoItemContainer';
 import Preloader from '../Preloader/Preloader';
@@ -46,6 +46,7 @@ const TodoList = ({ todoList, isFetching, currentFilter }) => {
 TodoList.propTypes = {
   todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isFetching: PropTypes.bool.isRequired,
+  currentFilter: PropTypes.string.isRequired,
 };
 
 export default TodoList;

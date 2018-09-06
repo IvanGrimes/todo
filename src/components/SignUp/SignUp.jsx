@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 
 const SignUp = props => (

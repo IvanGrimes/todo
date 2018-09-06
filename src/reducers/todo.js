@@ -51,7 +51,7 @@ export default function todo(state = initialState, action) {
         ...state,
         ...state.list,
         list: state.list.map((todoItem) => {
-          todoItem.completed = todoItem.key === action.payload
+          todoItem.completed = todoItem.key === action.payload.id
             ? !todoItem.completed
             : todoItem.completed;
           return todoItem;
