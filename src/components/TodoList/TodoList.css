@@ -23,3 +23,11 @@
   font-size: 18px;
   text-align: center;
 }
+
+.todo-list__empty-text.fade-enter-active {
+  opacity: 1;
+}
+
+.todo-list__empty-text.fade-enter-done {
+  opacity: 1;
+}

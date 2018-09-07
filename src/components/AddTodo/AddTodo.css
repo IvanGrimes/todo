@@ -17,6 +17,11 @@
   border-radius: 6px;
 }
 
+.add-todo__input::placeholder {
+  color: #56677f;
+  opacity: .65;
+}
+
 .add-todo__button {
   position: absolute;
   border: 0;

@@ -12,6 +12,7 @@ const AddTodo = ({ content, handleChange, handleClick }) => (
       onChange={handleChange}
       value={content}
       tabIndex="0"
+      placeholder="Add your todo..."
     />
 
     <button
