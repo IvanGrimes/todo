@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TransitionGroup } from 'react-transition-group';
 import TodoItemContainer from '../TodoItem/TodoItemContainer';
 import Preloader from '../Preloader/Preloader';
 import SignOutContainer from '../SignOut/SignOutContainer';
@@ -7,6 +8,7 @@ import TodoListFilterContainer from '../TodoListFilter/TodoListFilterContainer';
 import AddTodoContainer from '../AddTodo/AddTodoContainer';
 import { ALL, ACTIVE, COMPLETED } from '../../constants/filterTypes';
 import './TodoList.css';
+import Fade from '../Fade/Fade';
 
 const TodoList = ({ todoList, isFetching, currentFilter }) => {
   if (isFetching) {
@@ -20,14 +22,18 @@ const TodoList = ({ todoList, isFetching, currentFilter }) => {
         <SignOutContainer />
       </div>
       <div className="todo-list__items">
-        {todoList.map(todo => (
-          <TodoItemContainer
-            key={todo.key}
-            itemId={todo.key}
-            content={todo.content}
-            completed={todo.completed}
-          />
-        ))}
+        <TransitionGroup>
+          {todoList.map(todo => (
+            <Fade key={todo.key}>
+              <TodoItemContainer
+                itemId={todo.key}
+                content={todo.content}
+                completed={todo.completed}
+              />
+            </Fade>
+          ))}
+        </TransitionGroup>
+
         { !todoList.length
         && currentFilter === ALL
         && <p className="todo-list__empty-text">Add your first todo ;)</p> }
