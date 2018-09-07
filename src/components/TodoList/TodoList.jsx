@@ -34,15 +34,34 @@ const TodoList = ({ todoList, isFetching, currentFilter }) => {
           ))}
         </TransitionGroup>
 
-        { !todoList.length
-        && currentFilter === ALL
-        && <p className="todo-list__empty-text">Add your first todo ;)</p> }
-        { !todoList.length
-        && currentFilter === ACTIVE
-        && <p className="todo-list__empty-text">You are complete all your todos ^^</p> }
-        { !todoList.length
-        && currentFilter === COMPLETED
-        && <p className="todo-list__empty-text">You are not complete any of your todo :)</p> }
+          { !todoList.length
+          && currentFilter === ALL
+          && (
+            <TransitionGroup>
+              <Fade>
+                <p className="todo-list__empty-text">Add your first todo ;)</p>
+              </Fade>
+            </TransitionGroup>
+          ) }
+          { !todoList.length
+          && currentFilter === ACTIVE
+          && (
+            <TransitionGroup>
+              <Fade>
+                <p className="todo-list__empty-text">You are complete all your todos ^^</p>
+              </Fade>
+            </TransitionGroup>
+          ) }
+          { !todoList.length
+          && currentFilter === COMPLETED
+          && (
+            <TransitionGroup>
+              <Fade>
+                <p className="todo-list__empty-text">You are not complete any of your todo :)</p>
+              </Fade>
+            </TransitionGroup>
+
+          )}
       </div>
       <AddTodoContainer />
     </div>

@@ -11,3 +11,8 @@
 .todo-list__items {
   margin-top: 75px;
 }
+
+.todo-list__empty-text {
+  opacity: 0;
+  transition: opacity .5s linear .5s !important;
+}
