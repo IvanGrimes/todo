@@ -29,7 +29,8 @@
   transition: opacity .15s linear;
 }
 
-.add-todo__button:hover {
+.add-todo__button:hover,
+.add-todo__button:focus {
   opacity: .75;
 }
 

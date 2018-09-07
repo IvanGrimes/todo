@@ -2,7 +2,6 @@ import {
   call,
   put,
   takeLatest,
-  takeEvery,
 } from 'redux-saga/effects';
 import { database } from '../firebase';
 import snapshotToArray from '../utils/snapshotToArray';

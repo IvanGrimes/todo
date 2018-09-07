@@ -12,14 +12,16 @@
   outline: 0;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   background-color: rgba(185, 201, 218, 0.3);
+}
+
+.button:disabled:hover,
+.button:disabled:focus {
+  background-color: transparent;
 }
 
 .button:disabled {
   cursor: default;
-}
-
-.button:disabled:hover {
-  background-color: transparent;
 }

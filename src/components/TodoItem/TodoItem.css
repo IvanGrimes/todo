@@ -19,6 +19,7 @@
   font-size: 22px;
   cursor: pointer;
   color: #3b4457;
+  outline: 0;
 }
 
 .todo-item__content::before {
@@ -35,7 +36,8 @@
   transition: width .3s linear;
 }
 
-.todo-item:not(.todo-item--completed) > .todo-item__content:hover::before {
+.todo-item:not(.todo-item--completed) > .todo-item__content:hover::before,
+.todo-item:not(.todo-item--completed) > .todo-item__content:focus::before {
   width: 33%;
 }
 
@@ -48,6 +50,12 @@
   border: 0;
   background: 0;
   cursor: pointer;
+  outline: 0;
+}
+
+.todo-item__button:hover > .todo-item__button-icon,
+.todo-item__button:focus > .todo-item__button-icon {
+  opacity: .5;
 }
 
 .todo-item__button-icon {
@@ -55,8 +63,4 @@
   height: 1.8em;
   color: #7f96b0;
   transition: opacity .15s linear;
-}
-
-.todo-item__button-icon:hover {
-  opacity: .5;
 }

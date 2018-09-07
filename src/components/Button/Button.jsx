@@ -4,6 +4,7 @@ import './Button.css';
 const Button = ({ className = '', children, ...props }) => (
   <button
     type="button"
+    tabIndex="0"
     {...props}
     className={`button ${className}`}
   >

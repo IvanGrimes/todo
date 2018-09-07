@@ -11,6 +11,7 @@ const AddTodo = ({ content, handleChange, handleClick }) => (
       type="text"
       onChange={handleChange}
       value={content}
+      tabIndex="0"
     />
 
     <button
@@ -18,6 +19,7 @@ const AddTodo = ({ content, handleChange, handleClick }) => (
       type="button"
       onClick={handleClick}
       disabled={!content}
+      tabIndex="0"
     >
       <IconContext.Provider value={{ className: 'add-todo__button-icon' }}>
         <FaPlusCircle />

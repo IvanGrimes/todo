@@ -15,8 +15,16 @@ const TodoItem = ({
     className={`todo-item ${completed ? 'todo-item--completed' : ''}`}
   >
     <div
+      role="button"
+      aria-roledescription="todo-item"
       className="todo-item__content"
       onClick={() => handleClickContent(itemId)}
+      onKeyPress={(ev) => {
+        if (ev.key === ' ') { // ev.key === 'Space'
+          handleClickContent(itemId);
+        }
+      }}
+      tabIndex="0"
     >
       {content}
     </div>
@@ -25,6 +33,7 @@ const TodoItem = ({
       type="button"
       className="todo-item__button"
       onClick={() => handleClickButton(itemId)}
+      tabIndex="0"
     >
       <IconContext.Provider value={{ className: 'todo-item__button-icon' }}>
         <FaTimes />
