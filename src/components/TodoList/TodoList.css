@@ -15,4 +15,11 @@
 .todo-list__empty-text {
   opacity: 0;
   transition: opacity .5s linear .5s !important;
+  height: 0;
+  line-height: 0;
+  margin: 0;
+  color: #56677f;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
 }
