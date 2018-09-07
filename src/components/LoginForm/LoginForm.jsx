@@ -39,7 +39,7 @@ const LoginForm = ({
         id="email"
         onChange={handleChange}
         value={email}
-        placeholder="Username"
+        placeholder="Email"
         disabled={isFetching}
       />
       <IconContext.Provider value={{ className: 'login-form__input-icon' }}>
