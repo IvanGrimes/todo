@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { clearError, signInRequest } from '../../actions/user';
 import SignIn from './SignIn';
+import { MAIN, REGISTER } from '../../constants/routes';
 
 class SignInContainer extends Component {
   static propTypes = {
@@ -43,7 +44,7 @@ class SignInContainer extends Component {
     const { isAuth, isFetching, error } = this.props;
 
     if (isAuth) {
-      return <Redirect to="/" />;
+      return <Redirect to={MAIN} />;
     }
 
     return (
@@ -54,7 +55,7 @@ class SignInContainer extends Component {
         handleClick={this.handleClick}
         error={error}
         buttonText="Sign In"
-        linkTo="/register"
+        linkTo={REGISTER}
         linkText="Sign Up"
         isFetching={isFetching}
       />

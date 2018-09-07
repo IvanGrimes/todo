@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUpRequest, clearError } from '../../actions/user';
 import SignUp from './SignUp';
+import { MAIN, LOGIN } from '../../constants/routes';
 
 class SignUpContainer extends Component {
   static propTypes = {
@@ -42,7 +43,7 @@ class SignUpContainer extends Component {
     const { email, password } = this.state;
 
     if (isAuth) {
-      return <Redirect to="/" />;
+      return <Redirect to={MAIN} />;
     }
 
     return (
@@ -53,7 +54,7 @@ class SignUpContainer extends Component {
         email={email}
         password={password}
         buttonText="Sign Up"
-        linkTo="/login"
+        linkTo={LOGIN}
         linkText="Sign In"
         isFetching={isFetching}
       />

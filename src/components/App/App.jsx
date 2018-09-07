@@ -6,13 +6,14 @@ import { ConnectedRouter } from 'react-router-redux';
 import TodoListContainer from '../TodoList/TodoListContainer';
 import './App.css';
 import SignUpContainer from '../SignUp/SignUpContainer';
+import { MAIN, LOGIN, REGISTER } from "../../constants/routes";
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>
     <Switch>
-      <Route path="/login" component={SignInContainer} />
-      <Route path="/register" component={SignUpContainer} />
-      <Route path="/" component={TodoListContainer} />
+      <Route path={LOGIN} component={SignInContainer} />
+      <Route path={REGISTER} component={SignUpContainer} />
+      <Route path={MAIN} component={TodoListContainer} />
     </Switch>
   </ConnectedRouter>
 );
