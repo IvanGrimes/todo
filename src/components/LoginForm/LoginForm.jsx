@@ -19,7 +19,13 @@ const LoginForm = ({
   linkText,
   isFetching,
 }) => (
-  <div className={`login-form ${isFetching ? 'login-form--disabled' : ''}`}>
+  <form
+    className={`login-form ${isFetching ? 'login-form--disabled' : ''}`}
+    onSubmit={(ev) => {
+      ev.preventDefault();
+      handleClick(ev);
+    }}
+  >
     <TransitionGroup>
       {
         error.length ? (
@@ -66,7 +72,7 @@ const LoginForm = ({
     <div className="login-form__controls">
       <Button
         className={`login-form__controls-button ${error.length ? 'login-form__button--is-not-valid' : ''}`}
-        type="button"
+        type="submit"
         disabled={isFetching}
         onClick={(ev) => {
           handleClick(ev);
@@ -82,7 +88,7 @@ const LoginForm = ({
         {linkText}
       </Link>
     </div>
-  </div>
+  </form>
 );
 
 LoginForm.propTypes = {
