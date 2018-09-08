@@ -4,8 +4,8 @@ import './AddTodo.css';
 import { IconContext } from 'react-icons';
 import { FaPlusCircle } from 'react-icons/fa';
 
-const AddTodo = ({ content, handleChange, handleClick }) => (
-  <div className="add-todo">
+const AddTodo = ({ content, handleChange, handleSubmit }) => (
+  <form className="add-todo">
     <input
       className="add-todo__input"
       type="text"
@@ -17,8 +17,8 @@ const AddTodo = ({ content, handleChange, handleClick }) => (
 
     <button
       className="add-todo__button"
-      type="button"
-      onClick={handleClick}
+      type="submit"
+      onClick={handleSubmit}
       disabled={!content}
       tabIndex="0"
     >
@@ -26,13 +26,13 @@ const AddTodo = ({ content, handleChange, handleClick }) => (
         <FaPlusCircle />
       </IconContext.Provider>
     </button>
-  </div>
+  </form>
 );
 
 AddTodo.propTypes = {
   content: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default AddTodo;

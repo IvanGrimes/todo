@@ -19,7 +19,8 @@ class AddTodoContainer extends Component {
     this.setState({ content: ev.target.value });
   };
 
-  handleClick = () => {
+  handleSubmit = (ev) => {
+    ev.preventDefault();
     const { content } = this.state;
     const { handleAdd } = this.props;
     const id = uuid();
@@ -46,7 +47,7 @@ class AddTodoContainer extends Component {
         <AddTodo
           content={content}
           handleChange={this.handleChange}
-          handleClick={this.handleClick}
+          handleSubmit={this.handleSubmit}
         />
       </div>
     );
