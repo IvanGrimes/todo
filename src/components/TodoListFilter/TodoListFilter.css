@@ -13,3 +13,29 @@
 .todo-list-filter__button--active {
   background-color: rgba(185, 201, 218, 0.3);
 }
+
+@media screen and (max-width: 620px) {
+  .todo-list-filter {
+    width: 100%;
+    justify-content: space-between;
+    margin: 60px 0 0 0;
+  }
+
+  .todo-list-filter__button {
+    margin: 0;
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .todo-list-filter {
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 20px 0 0 0;
+  }
+
+  .todo-list-filter__button {
+    margin: 30px 0 0 0;
+    width: 100%;
+  }
+}

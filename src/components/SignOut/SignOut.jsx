@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 
 const SignOut = ({ handleClick }) => (
   <Button
+    className="todo-list__controls-sign-out"
     type="button"
     onClick={handleClick}
   >

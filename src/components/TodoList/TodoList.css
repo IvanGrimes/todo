@@ -3,11 +3,23 @@
   margin: 50px auto;
 }
 
+@media screen and (max-width: 720px) {
+  .todo-list {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .todo-list__controls {
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+  }
+}
+
 .todo-list__controls {
   display: flex;
   justify-content: space-between;
 }
-
 .todo-list__items {
   margin-top: 75px;
 }

@@ -4,7 +4,6 @@ import SignInContainer from '../SignIn/SignInContainer';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import TodoListContainer from '../TodoList/TodoListContainer';
-import './App.css';
 import SignUpContainer from '../SignUp/SignUpContainer';
 import { MAIN, LOGIN, REGISTER } from "../../constants/routes";
 

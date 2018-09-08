@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    margin: 0 20px;
+  }
+}
