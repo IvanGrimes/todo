@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TodoListFilter from './TodoListFilter';
 import { setTodoListFilter } from '../../actions/todo';
+import { getFilterState } from '../../selectors';
 import {
   ALL,
   COMPLETED,
@@ -33,7 +34,7 @@ class TodoListFilterContainer extends Component {
 }
 
 const mapStateToProps = store => ({
-  currentFilter: store.todo.filter,
+  currentFilter: getFilterState(store),
 });
 
 const mapDispatchToState = dispatch => ({

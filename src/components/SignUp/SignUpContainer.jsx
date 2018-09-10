@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { signUpRequest, clearError } from '../../actions/user';
 import SignUp from './SignUp';
 import { MAIN, LOGIN } from '../../constants/routes';
+import { getAuthState, getFetchingState, getUserError } from '../../selectors';
 
 class SignUpContainer extends Component {
   static propTypes = {
@@ -63,9 +64,9 @@ class SignUpContainer extends Component {
 }
 
 const mapStateToProps = store => ({
-  isAuth: store.user.auth,
-  isFetching: store.user.isFetching,
-  error: store.user.error,
+  isAuth: getAuthState(store),
+  isFetching: getFetchingState(store),
+  error: getUserError(store),
 });
 
 const mapDispatchToState = dispatch => ({

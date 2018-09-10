@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { getTodoListRequest } from '../../actions/todo';
 import TodoList from './TodoList';
-import { getFilteredTodoList } from '../../selectors';
+import {
+  getFilteredTodoList,
+  getFilterState,
+  getAuthState,
+  getFetchingState,
+} from '../../selectors';
 
 class TodoListContainer extends Component {
   static propTypes = {
@@ -43,10 +48,10 @@ class TodoListContainer extends Component {
 }
 
 const mapStateToProps = store => ({
-  isAuth: store.user.auth,
-  isFetching: store.todo.isFetching,
+  isAuth: getAuthState(store),
+  isFetching: getFetchingState(store),
   todoList: getFilteredTodoList(store),
-  currentFilter: store.todo.filter,
+  currentFilter: getFilterState(store),
 });
 
 const mapDispatchToState = dispatch => ({

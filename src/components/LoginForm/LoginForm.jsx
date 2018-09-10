@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import './LoginForm.css';
 import { IconContext } from 'react-icons';
 import { FaUser, FaKey } from 'react-icons/fa';
+import { TransitionGroup } from 'react-transition-group';
 import Button from '../Button/Button';
 import Fade from '../Fade/Fade';
-import { TransitionGroup } from 'react-transition-group';
 
 const LoginForm = ({
   email,
