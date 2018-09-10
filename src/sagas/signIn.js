@@ -28,6 +28,8 @@ function* fetchUser(action) {
   }
 }
 
-export const signIn = [
+const signIn = [
   takeLatest(SIGN_IN_REQUEST, fetchUser),
 ];
+
+export default signIn;

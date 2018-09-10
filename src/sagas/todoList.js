@@ -33,6 +33,8 @@ function* fetchTodoList() {
   }
 }
 
-export const todoList = [
+const todoList = [
   takeLatest(GET_TODO_LIST_REQUEST, fetchTodoList),
 ];
+
+export default todoList;

@@ -1,4 +1,8 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import {
+  call,
+  put,
+  takeLatest,
+} from 'redux-saga/effects';
 import { authRef } from '../firebase';
 import {
   SIGN_UP_REQUEST,
@@ -28,6 +32,8 @@ function* createUser(action) {
   }
 }
 
-export const signUp = [
+const signUp = [
   takeLatest(SIGN_UP_REQUEST, createUser),
 ];
+
+export default signUp;

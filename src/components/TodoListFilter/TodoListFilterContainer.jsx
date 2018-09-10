@@ -13,6 +13,7 @@ import {
 class TodoListFilterContainer extends Component {
   static propTypes = {
     handleFilter: PropTypes.func.isRequired,
+    currentFilter: PropTypes.string.isRequired,
   };
 
   handleClick = (filter) => {

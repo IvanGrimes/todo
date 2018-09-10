@@ -1,11 +1,18 @@
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import SignInContainer from '../SignIn/SignInContainer';
-import { Route, Switch } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+} from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
+import SignInContainer from '../SignIn/SignInContainer';
 import TodoListContainer from '../TodoList/TodoListContainer';
 import SignUpContainer from '../SignUp/SignUpContainer';
-import { MAIN, LOGIN, REGISTER } from "../../constants/routes";
+import {
+  MAIN,
+  LOGIN,
+  REGISTER,
+} from '../../constants/routes';
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>
@@ -18,7 +25,24 @@ const App = ({ history }) => (
 );
 
 App.propTypes = {
-  history: PropTypes.object.isRequired,
+  history: PropTypes.shape({
+    action: PropTypes.string.isRequired,
+    block: PropTypes.func.isRequired,
+    createHref: PropTypes.func.isRequired,
+    go: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
+    goForward: PropTypes.func.isRequired,
+    length: PropTypes.number.isRequired,
+    listen: PropTypes.func.isRequired,
+    location: PropTypes.shape({
+      hash: PropTypes.string.isRequired,
+      key: PropTypes.string.isRequired,
+      pathname: PropTypes.string.isRequired,
+      search: PropTypes.string.isRequired,
+    }).isRequired,
+    push: PropTypes.func.isRequired,
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default App;

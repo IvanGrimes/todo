@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
 import { deleteTodo, toggleTodoState } from '../../actions/todo';
-import {database} from "../../firebase";
+import { database } from '../../firebase';
 
 class TodoItemContainer extends Component {
   static propTypes = {
