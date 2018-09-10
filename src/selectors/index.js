@@ -7,7 +7,7 @@ const getFilterType = store => store.todo.filter;
 
 const getAuth = store => store.user.auth;
 
-const getFetching = store => store.todo.isFetching;
+const getFetching = store => store.user.isFetching;
 
 const getError = store => store.user.error;
 

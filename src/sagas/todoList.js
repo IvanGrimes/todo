@@ -11,7 +11,6 @@ import {
   GET_TODO_LIST_FAIL,
 } from '../constants/actionTypes';
 
-
 function* fetchTodoList() {
   try {
     const uid = localStorage.getItem('uid');

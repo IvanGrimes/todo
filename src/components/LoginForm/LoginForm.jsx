@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './LoginForm.css';
 import { IconContext } from 'react-icons';
-import { FaUser, FaKey } from 'react-icons/fa';
+import {
+  FaUser,
+  FaKey,
+} from 'react-icons/fa';
 import { TransitionGroup } from 'react-transition-group';
 import Button from '../Button/Button';
 import Fade from '../Fade/Fade';
@@ -11,11 +14,11 @@ import Fade from '../Fade/Fade';
 class LoginForm extends Component {
   static propTypes = {
     buttonText: PropTypes.string.isRequired,
-    handleClick: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
-    linkTo: PropTypes.string.isRequired,
-    linkText: PropTypes.string.isRequired,
+    handleClick: PropTypes.func.isRequired,
     isFetching: PropTypes.bool.isRequired,
+    linkText: PropTypes.string.isRequired,
+    linkTo: PropTypes.string.isRequired,
   };
 
   state = {
@@ -39,7 +42,7 @@ class LoginForm extends Component {
       buttonText,
     } = this.props;
     const { email, password } = this.state;
-
+    console.log(isFetching)
     return (
       <form
         className={`login-form ${isFetching ? 'login-form--disabled' : ''}`}
@@ -59,7 +62,6 @@ class LoginForm extends Component {
             ) : null
           }
         </TransitionGroup>
-
         <div className="login-form__input-wrapper">
           <input
             className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
@@ -74,7 +76,6 @@ class LoginForm extends Component {
             <FaUser />
           </IconContext.Provider>
         </div>
-
         <div className="login-form__input-wrapper">
           <input
             className={`login-form__input ${error.length ? 'login-form__input--is-not-valid' : ''}`}
@@ -89,11 +90,11 @@ class LoginForm extends Component {
             <FaKey />
           </IconContext.Provider>
         </div>
-
-
         <div className="login-form__controls">
           <Button
-            className={`login-form__controls-button ${error.length ? 'login-form__button--is-not-valid' : ''}`}
+            className={`login-form__controls-button ${error.length
+              ? 'login-form__button--is-not-valid'
+              : ''}`}
             type="submit"
             disabled={isFetching}
             onClick={(ev) => {
@@ -102,9 +103,10 @@ class LoginForm extends Component {
           >
             {buttonText}
           </Button>
-
           <Link
-            className={`login-form__controls-link ${isFetching ? 'login-form__controls-link--disabled' : ''}`}
+            className={`login-form__controls-link ${isFetching
+              ? 'login-form__controls-link--disabled'
+              : ''}`}
             to={linkTo}
           >
             {linkText}
