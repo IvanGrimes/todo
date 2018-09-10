@@ -16,32 +16,19 @@ class SignInContainer extends Component {
     clearErrorMessage: PropTypes.func.isRequired,
   };
 
-  state = {
-    email: '',
-    password: '',
-  };
-
   componentDidMount() {
     const { clearErrorMessage } = this.props;
     clearErrorMessage();
   }
 
-  handleChange = (ev) => {
-    const { id, value } = ev.target;
-
-    this.setState({ [id]: value });
-  };
-
-  handleClick = (ev) => {
+  handleClick = (ev, email, password) => {
     ev.preventDefault();
-    const { email, password } = this.state;
     const { handleSignIn } = this.props;
 
     handleSignIn(email, password);
   };
 
   render() {
-    const { email, password } = this.state;
     const { isAuth, isFetching, error } = this.props;
 
     if (isAuth) {
@@ -50,9 +37,6 @@ class SignInContainer extends Component {
 
     return (
       <SignIn
-        email={email}
-        password={password}
-        handleChange={this.handleChange}
         handleClick={this.handleClick}
         error={error}
         buttonText="Sign In"

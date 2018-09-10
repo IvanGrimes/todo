@@ -10,9 +10,6 @@ const SignUp = props => (
 
 SignUp.propTypes = {
   error: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

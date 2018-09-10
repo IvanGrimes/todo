@@ -9,9 +9,6 @@ const SignIn = props => (
 );
 
 SignIn.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

@@ -16,24 +16,13 @@ class SignUpContainer extends Component {
     clearErrorMessage: PropTypes.func.isRequired,
   };
 
-  state = {
-    email: '',
-    password: '',
-  };
-
   componentDidMount() {
     const { clearErrorMessage } = this.props;
     clearErrorMessage();
   }
 
-  handleChange = (ev) => {
-    const { value, id } = ev.target;
-
-    this.setState({ [id]: value });
-  };
-
-  handleClick = () => {
-    const { email, password } = this.state;
+  handleClick = (ev, email, password) => {
+    ev.preventDefault();
     const { handleSignUp } = this.props;
 
     handleSignUp(email, password);
@@ -41,7 +30,6 @@ class SignUpContainer extends Component {
 
   render() {
     const { isAuth, error, isFetching } = this.props;
-    const { email, password } = this.state;
 
     if (isAuth) {
       return <Redirect to={MAIN} />;
@@ -50,10 +38,7 @@ class SignUpContainer extends Component {
     return (
       <SignUp
         error={error}
-        handleChange={this.handleChange}
         handleClick={this.handleClick}
-        email={email}
-        password={password}
         buttonText="Sign Up"
         linkTo={LOGIN}
         linkText="Sign In"
