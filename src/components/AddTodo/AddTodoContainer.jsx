@@ -11,17 +11,8 @@ class AddTodoContainer extends Component {
     handleAdd: PropTypes.func.isRequired,
   };
 
-  state = {
-    content: '',
-  };
-
-  handleChange = (ev) => {
-    this.setState({ content: ev.target.value });
-  };
-
-  handleSubmit = (ev) => {
+  handleSubmit = (ev, content) => {
     ev.preventDefault();
-    const { content } = this.state;
     const { handleAdd } = this.props;
     const id = uuid();
 
@@ -35,18 +26,12 @@ class AddTodoContainer extends Component {
       content,
       completed: false,
     });
-
-    this.setState({ content: '' });
   };
 
   render() {
-    const { content } = this.state;
-
     return (
       <div>
         <AddTodo
-          content={content}
-          handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
       </div>
