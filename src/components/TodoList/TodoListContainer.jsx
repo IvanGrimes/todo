@@ -8,7 +8,7 @@ import {
   getFilteredTodoList,
   getFilterState,
   getAuthState,
-  getFetchingState,
+  getTodoFetchingState,
 } from '../../selectors';
 
 class TodoListContainer extends Component {
@@ -49,7 +49,7 @@ class TodoListContainer extends Component {
 
 const mapStateToProps = store => ({
   isAuth: getAuthState(store),
-  isFetching: getFetchingState(store),
+  isFetching: getTodoFetchingState(store),
   todoList: getFilteredTodoList(store),
   currentFilter: getFilterState(store),
 });

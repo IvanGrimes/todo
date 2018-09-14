@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { clearError, signInRequest } from '../../actions/user';
 import SignIn from './SignIn';
 import { MAIN, REGISTER } from '../../constants/routes';
-import { getFetchingState, getUserError, getAuthState } from '../../selectors';
+import { getUserFetchingState, getUserError, getAuthState } from '../../selectors';
 
 class SignInContainer extends Component {
   static propTypes = {
@@ -50,7 +50,7 @@ class SignInContainer extends Component {
 
 const mapStateToProps = store => ({
   isAuth: getAuthState(store),
-  isFetching: getFetchingState(store),
+  isFetching: getUserFetchingState(store),
   error: getUserError(store),
 });
 

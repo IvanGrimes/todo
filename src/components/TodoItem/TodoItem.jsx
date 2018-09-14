@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TodoItem.css';
 import { IconContext } from 'react-icons';
-import { FaTimes } from 'react-icons/fa';
+import {
+  FaTimes,
+  FaCheck,
+} from 'react-icons/fa';
 
 const TodoItem = ({
   content,
@@ -12,20 +15,20 @@ const TodoItem = ({
   completed,
 }) => (
   <div
-    className={`todo-item ${completed ? 'todo-item--completed' : ''}`}
+    className="todo-item"
   >
-    <div
-      role="button"
-      aria-roledescription="todo-item"
-      className="todo-item__content"
+    <button
+      type="button"
       onClick={() => handleClickContent(itemId)}
-      onKeyPress={(ev) => {
-        if (ev.key === ' ') { // ev.key === 'Space'
-          handleClickContent(itemId);
-        }
-      }}
       tabIndex="0"
+      className={`todo-item__complete-button ${completed ? 'todo-item__complete-button--completed' : ''}`}
     >
+      <IconContext.Provider value={{ className: completed ? 'todo-item__complete-button-icon todo-item__complete-button-icon--completed' : 'todo-item__complete-button-icon' }}>
+        <FaCheck />
+      </IconContext.Provider>
+    </button>
+
+    <div className={`todo-item__content ${completed ? 'todo-item__content--completed' : ''}`}>
       {content}
     </div>
 

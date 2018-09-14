@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { signUpRequest, clearError } from '../../actions/user';
 import SignUp from './SignUp';
 import { MAIN, LOGIN } from '../../constants/routes';
-import { getAuthState, getFetchingState, getUserError } from '../../selectors';
+import { getAuthState, getUserFetchingState, getUserError } from '../../selectors';
 
 class SignUpContainer extends Component {
   static propTypes = {
@@ -50,7 +50,7 @@ class SignUpContainer extends Component {
 
 const mapStateToProps = store => ({
   isAuth: getAuthState(store),
-  isFetching: getFetchingState(store),
+  isFetching: getUserFetchingState(store),
   error: getUserError(store),
 });
 

@@ -3,8 +3,8 @@
   opacity: 0;
 }
 
-.fade-enter-active,
-.fade-appear-active {
+.fade-appear-active,
+.fade-enter-active {
   opacity: 1;
   transition: opacity .5s linear;
 }

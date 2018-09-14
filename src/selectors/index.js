@@ -7,9 +7,16 @@ const getFilterType = store => store.todo.filter;
 
 const getAuth = store => store.user.auth;
 
-const getFetching = store => store.user.isFetching;
+const getUserFetching = store => store.user.isFetching;
+
+const getTodoFetching = store => store.todo.isFetching;
 
 const getError = store => store.user.error;
+
+export const getTodoFetchingState = createSelector(
+  [getTodoFetching],
+  fetching => fetching,
+);
 
 export const getFilteredTodoList = createSelector(
   [getFilterType, getTodoList],
@@ -32,8 +39,8 @@ export const getAuthState = createSelector(
   authState => authState,
 );
 
-export const getFetchingState = createSelector(
-  [getFetching],
+export const getUserFetchingState = createSelector(
+  [getUserFetching],
   fetchingState => fetchingState,
 );
 
