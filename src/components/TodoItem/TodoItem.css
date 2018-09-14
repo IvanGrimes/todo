@@ -58,6 +58,7 @@
   min-height: 35px;
   border-radius: 50%;
   transition: border-color .2s linear;
+  cursor: pointer;
 }
 
 .todo-item__complete-button--completed {
