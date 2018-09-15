@@ -16,13 +16,16 @@ function* fetchTodoList() {
     const uid = localStorage.getItem('uid');
     const todoList = yield call(
       () => (database.ref(`/users/${uid}/todolist`).once('value')
-        .then(snapshot => snapshot.val())),
+        .then(snapshot => {
+          console.log(snapshot.val())
+          return snapshot.val()
+        })),
       null,
     );
 
     yield put({
       type: GET_TODO_LIST_SUCCESS,
-      payload: snapshotToArray(todoList),
+      payload: snapshotToArray(todoList).sort((a, b) => a.created_at - b.created_at),
     });
   } catch (error) {
     yield put({
